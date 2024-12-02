@@ -137,6 +137,24 @@
         $res = $stmt->fetch(PDO::FETCH_NUM);
         return $res[0] ? $res[0] : '0'; // Return 0 if no sales
       }
+
+
+      function getMonthlyIncome($pdo)
+      {
+        $monthlyIncome = [];
+        for ($month = 1; $month <= 12; $month++) {
+          $start_date = date("Y-$month-01");
+          $end_date = date("Y-$month-t");
+          $stmt = $pdo->prepare("SELECT SUM(`net_total`) AS total_income FROM `invoice` WHERE `order_date` BETWEEN :start_date AND :end_date");
+          $stmt->bindParam(':start_date', $start_date);
+          $stmt->bindParam(':end_date', $end_date);
+          $stmt->execute();
+          $result = $stmt->fetch(PDO::FETCH_ASSOC);
+          $monthlyIncome[] = $result['total_income'] ? $result['total_income'] : 0; // Default to 0 if no income
+        }
+        return $monthlyIncome;
+      }
+
       ?>
 
       <div class="row">
@@ -175,11 +193,21 @@
         <div class="col-md-6 col-lg-6">
           <div class="card">
             <div class="card-header">
-              <b>product stock Alert</b>
+              <b>Monthly Income Analytics</b>
             </div>
             <div class="card-body">
               <div class="responsive">
-                <table class="display dataTable text-center">
+
+                <?php
+                $monthlyIncome = getMonthlyIncome($pdo); // Call the function
+                ?>
+                <script>
+                  const monthlyIncomeData = <?php echo json_encode($monthlyIncome); ?>;
+                </script>
+                <canvas id="incomeChart"></canvas>
+
+
+                <!-- <table class="display dataTable text-center">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -206,7 +234,7 @@
                     }
                     ?>
                   </tbody>
-                </table>
+                </table> -->
               </div>
             </div>
           </div>
@@ -263,3 +291,63 @@
     </section>
     <!-- /.content -->
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('incomeChart').getContext('2d');
+    const incomeChart = new Chart(ctx, {
+      type: 'bar', // 'bar', 'line', 'pie', etc.
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        datasets: [{
+          label: 'Monthly Income (PHP)',
+          data: monthlyIncomeData,
+          backgroundColor: [
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(199, 199, 199, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 206, 86, 0.2)'
+          ],
+          borderColor: [
+            'rgba(75, 192, 192, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(199, 199, 199, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 206, 86, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              font: {
+                size: 14
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
