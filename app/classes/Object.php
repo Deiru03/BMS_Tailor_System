@@ -21,19 +21,41 @@ class Objects {
 
 
 	public function create($table, $fields = array()) {
+		// Check if the table exists
+		$checkTableSql = "SHOW TABLES LIKE :table_name";
+		$checkStmt = $this->pdo->prepare($checkTableSql);
+		$checkStmt->bindValue(":table_name", $table);
+		$checkStmt->execute();
+	
+		if ($checkStmt->rowCount() == 0) {
+			// If the table doesn't exist, create it dynamically
+			$columns = [];
+			foreach ($fields as $key => $value) {
+				$columns[] = "`$key` VARCHAR(255)"; // Default to VARCHAR(255), modify as needed
+			}
+			// Add the id column
+			$createTableSql = "CREATE TABLE `$table` (
+				id INT AUTO_INCREMENT PRIMARY KEY, 
+				" . implode(", ", $columns) . "
+			)";
+			$this->pdo->exec($createTableSql);
+		}
+	
+		// Insert data into the table
 		$columns = implode(',', array_keys($fields));
 		$values = ":" . implode(', :', array_keys($fields));
 		$sql = "INSERT INTO {$table}({$columns}) VALUES($values)";
-
+	
 		if ($stmt = $this->pdo->prepare($sql)) {
 			foreach ($fields as $key => $data) {
 				$stmt->bindValue(":" . $key, $data);
 			}
-
+	
 			$stmt->execute();
 			return $this->pdo->lastInsertId();
 		}
 	}
+	
 
 	public function update($table, $colum_name, $id, $fields = array()) {
 		$columns = '';
