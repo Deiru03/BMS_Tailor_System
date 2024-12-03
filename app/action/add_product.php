@@ -13,7 +13,7 @@
 
 		$product_source = $_POST['product_source'];
 		$sku = $_POST['sku'];
-		$alert_quantity = $_POST['alert_quantity'];
+		$quantity = $_POST['quantity'];
 		$user_id = $_SESSION['user_id'];
 
 
@@ -27,7 +27,7 @@
 				'catagory_name'	 => $p_catagory_name,						
 				'product_source' => $product_source,				
 				'sku' 			 => $sku,					
-				'alert_quanttity'=> $alert_quantity,		
+				'quanttity'		=> $quantity,		
 				'added_by' 		 => $user_id,			
 			);
 			$res = $obj->create('products', $query);

@@ -35,88 +35,20 @@
                 supervisor_account</i></span>
             <!-- /.info-box-content -->
           </div>
-<<<<<<< HEAD
 
 
-          <!-- /.col -->
-          <div class="col-xl-3 col-xxl-6 col-sm-6">
-            <div class="info-box  bg-success">
-              <div class="info-box-content">
-                <span class="info-box-text">Total Suppliers</span>
-                <span class="info-box-number"> 
-                  <?php 
-                    echo $all_customer = $obj->total_count('suppliar');
-                  ?>
-                  </span>
-              </div>
-               <span class="info-box-icon elevation-1"><i class="material-symbols-outlined">group</i></span>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-
-          <div class="col-xl-3 col-xxl-6 col-sm-6">
-            <div class="info-box bg-info ">
-             
-              <div class="info-box-content">
-                <span class="info-box-text">Total sales</span>
-                <span class="info-box-number"> 
-                    
-                       
-                  </span>
-              </div>
-               <span class="info-box-icon elevation-1"><i class="material-symbols-outlined">sell</i></span>
-
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
 
 
-          <div class="col-xl-3 col-xxl-6 col-sm-6">
-            <div class="info-box bg-secondary ">
-              
-              <div class="info-box-content">
-                <span class="info-box-text">Total purchase</span>
-                <span class="info-box-number"> 
-                     
-                  </span>
-              </div>
-              <span class="info-box-icon elevation-1"><i class="material-symbols-outlined">payments</i></span>
-
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
 
           <!-- fix for small devices only -->
           <div class="clearfix hidden-md-up"></div>
 
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-shopping-cart"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Pending orders</span>
-                <span class="info-box-number">760</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-shopping-cart"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Incomplete Orders</span>
-                <span class="info-box-number">2,000</span>
-              </div>
-            </div>
-          </div> 
+    
+           
           <!-- /.col -->
-=======
+
           <!-- /.info-box -->
->>>>>>> c808c2f24e4a23eecca665ac71b35476c6e9fdd0
+
         </div>
 
 
@@ -323,7 +255,7 @@
         <div class="col-md-6 col-lg-6">
           <div class="card">
             <div class="card-header">
-              <b>Stock Alert</b>
+              <b>Products Stock</b>
             </div>
             <div class="card-body">
               <div class="responsive">

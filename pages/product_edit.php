@@ -50,9 +50,9 @@
        </div>
        <div class="col-md-4 col-lg-4">
            <div class="form-group">
-              <label for="p_catagory">Product catagory * :</label>
+              <label for="p_catagory">Product category * :</label>
               <select name="p_catagory" id="p_catagory" class="form-control select2">
-                <option disabled selected>Select a catagory</option>
+                <option disabled selected>Select a category</option>
                 <?php 
                   $all_catgory = $obj->all('catagory');
                   $select_val = $data->catagory_id;
@@ -81,24 +81,14 @@
           </select>
          </div>
        </div>
-        <div class="col-md-4 col-lg-4">
-           <div class="form-group">
-          <label for="sku">SKU * :</label>
-          <input type="text" class="form-control" readonly id="sku" value="<?=$data->sku;?>" name="sku">
-         </div>
-       </div>
+       
         <div class="col-md-4 col-lg-4">
           <div class="form-group">
           <label for="quantity">Quantity * :</label>
           <input type="number" class="form-control" id="quantity" value="<?=$data->quantity;?>" name="quantity">
         </div>
        </div>
-        <div class="col-md-4 col-lg-4">
-          <div class="form-group">
-          <label for="alert_quantity">Alert Quantity * :</label>
-          <input type="number" class="form-control" id="alert_quantity" name="alert_quantity" value="<?=$data->alert_quanttity;?>">
-        </div>
-       </div>
+    
        
        <div class="col-md-4 col-lg-4">
          <div class="form-group">
