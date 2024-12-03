@@ -33,7 +33,8 @@
 					'due_blance' => $cus_open_blacnce,
 				);
 
-				$res = $obj->create('customer_blance',$add_py_query);
+
+				$res = $obj->create('customer_balance',$add_py_query);
 				 echo "yes";
 			}else{
 				echo "Failed to add member. please try again";
