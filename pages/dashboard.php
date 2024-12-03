@@ -63,12 +63,7 @@
                 <span class="info-box-text">Total sales</span>
                 <span class="info-box-number"> 
                     
-                          <?php  
-                      $stmt = $pdo->prepare("SELECT SUM(`sub_total`) FROM `invoice`");
-                      $stmt->execute();
-                      $res = $stmt->fetch(PDO::FETCH_NUM);
-                      echo $total_sell_amount =  $res[0];
-                  ?>
+                       
                   </span>
               </div>
                <span class="info-box-icon elevation-1"><i class="material-symbols-outlined">sell</i></span>
@@ -85,12 +80,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Total purchase</span>
                 <span class="info-box-number"> 
-                         <?php  
-                      $stmt = $pdo->prepare("SELECT SUM(`purchase_subtotal`) FROM `purchase_products`");
-                      $stmt->execute();
-                      $res = $stmt->fetch(PDO::FETCH_NUM);
-                      echo $total_purchase =  $res[0];
-                  ?>
+                     
                   </span>
               </div>
               <span class="info-box-icon elevation-1"><i class="material-symbols-outlined">payments</i></span>
