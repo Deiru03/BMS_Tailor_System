@@ -4,7 +4,7 @@
           <section class="content mt-5">
             <div class="container-fluid">
              <div class="card-header">
-                <h3 class="card-title mt-3">Add catagory</h3>
+                <h3 class="card-title mt-3">Add category</h3>
               </div>
               <!-- /.card-header -->
                <div class="row">
@@ -19,7 +19,8 @@
                                 ?>
                                <form id="editExpenseForm">
                     <div class="form-group">
-                        <label for="expense_date">Expene date</label>
+                        <label for="expense_date">Expense date</label>
+                        
                     <div class="input-group flex-nowrap">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="addon-wrapping"><i class="fas fa-calendar-week"></i></span>

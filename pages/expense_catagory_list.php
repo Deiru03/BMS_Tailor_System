@@ -10,7 +10,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Expense catagory</li>
+              <li class="breadcrumb-item active">Materials category</li>
             </ol>
             </div><!-- /.col -->
             </div><!-- /.row -->
@@ -23,8 +23,8 @@
               <!-- .row -->
               <div class="card">
             <div class="card-header">
-                <h3 class="card-title"><b>All expense catagory</b></h3>
-              <!--  <a href="index.php?page=add_expense_catagory" class="btn btn-primary btn-sm float-right rounded-0">Add expense catagory</a> -->
+                <h3 class="card-title"><b>All materials category</b></h3>
+             <a href="index.php?page=add_expense_catagory" class="btn btn-primary btn-sm float-right rounded-0">Add materials category</a> 
                 <button type="button" class="btn btn-primary btn-sm float-right rounded-0" data-toggle="modal" data-target=".expenseCatModal"><i class="fas fa-plus"></i> expense catagory</button>
 
               </div>

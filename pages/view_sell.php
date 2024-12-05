@@ -30,7 +30,7 @@ footer.main-footer {
             <div class="container-fluid">
               <div class="card view_sell_page_info">
                 <div class="card-header">
-                  Sell information
+                  Salesinformation
                 </div>
                 <div class="card-body">
          <?php 
@@ -51,7 +51,7 @@ footer.main-footer {
                     <p>Address : <?=$customer->address;?></p>
                     <p>Phone : <?=$customer->con_num;?></p>
                     <p>Email : <?=$customer->email;?></p>
-                    <p>Supliar id : <?=$customer->member_id;?></p>
+                    <p>Suplier id : <?=$customer->member_id;?></p>
                    </div>
                   </div>
                   <div class="col-md-4 col-lg-4"></div>
@@ -136,7 +136,7 @@ footer.main-footer {
                           <div class="pruchase-view-description">
                             <table class="table">
                             <tr>
-                              <td>Sebtotal</td>
+                              <td>Sabtotal</td>
                               <td>:</td>
                               <td><?=$sell_total->sub_total;?></td>
                             </tr>
@@ -168,7 +168,7 @@ footer.main-footer {
            <div class="view_sell_button-area">
              <div class="btn-group" role="group" aria-label="Basic example">
             <a href="index.php?page=return_sell&&reurn_id=<?=$sell_total->id;?>" class="btn btn-info rounded-0 ml-2"><i class="fas fa-reply-all"></i> Return Sell</a>
-            <a href="index.php?page=edit_sell&&edit_id=<?=$sell_total->id;?>"" class="btn btn-success rounded-0 ml-2"><i class="fas fa-edit"></i> Edit Sell</a>
+            <a href="index.php?page=edit_sell&&edit_id=<?=$sell_total->id;?>" class="btn btn-success rounded-0 ml-2"><i class="fas fa-edit"></i> Edit Sell</a>
             <button type="button" onclick="window.print()" class="btn btn-primary ml-2"><i class="fas fa-file-pdf"></i> Print</button>
           </div>
            </div>

@@ -10,7 +10,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">new sell</li>
+              <li class="breadcrumb-item active">new sales</li>
             </ol>
             </div><!-- /.col -->
             </div><!-- /.row -->
@@ -23,7 +23,7 @@
 
               <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"><b>Make a sell here</b></h3>
+                    <h3 class="card-title"><b>Make a sales here</b></h3>
 
                             <button type="button" class="btn btn-primary btn-sm float-right rounded-0" data-toggle="modal" data-target=".myModal"><i class="fas fa-plus"></i> customer</button>
                           
@@ -83,7 +83,7 @@
                       <div class="form-group">
                         <div class="row">
                           <div class="col-md-3">
-                            <label for="subtotal">Subtoal</label>
+                            <label for="subtotal">Subtotal</label>
                           </div> 
                           <div class="col-md-8">
                             <input type="number" class="form-control form-control-sm" name="subtotal" id="subtotal"></div>  
@@ -171,7 +171,7 @@
                        </div>
                      </div>
                      <div class="form-group text-center">
-                       <button type="submit" class="btn btn-success btn-block" id="sellBtn">Make sell</button>
+                       <button type="submit" class="btn btn-success btn-block" id="sellBtn">Payment</button>
                      </div>
                     </div>
                   </div>

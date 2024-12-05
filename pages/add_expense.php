@@ -9,8 +9,8 @@
                  <div class="col-md-8 offset-md-2 col-lg-8 offset-lg-2 mt-3">
                    <div class="card">
                     <div class="card-header">
-                <h3 class="card-title"><b>Add catagory</b></h3>
-                <button type="button" class="btn btn-primary btn-sm float-right rounded-0" data-toggle="modal" data-target=".expenseCatModal" ><i class="fas fa-plus"></i> expense catagory</button>
+                <h3 class="card-title"><b>Add category</b></h3>
+                <button type="button" class="btn btn-primary btn-sm float-right rounded-0" data-toggle="modal" data-target=".expenseCatModal" ><i class="fas fa-plus"></i> expense Materials</button>
               </div>
                      <div class="card-body">
                 <form id="addExpenseForm">

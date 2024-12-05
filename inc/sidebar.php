@@ -122,7 +122,7 @@
               <li class="nav-item">
                 <a href="index.php?page=sell_return_list" class="nav-link <?php echo $actual_link=='sell_return_list'?'active':'';?>">
                   <!-- <i class="fas fa-align-justify nav-icon"></i> -->
-                  <p>Sell return list</p>
+                  <p>Sales return list</p>
                 </a>
               </li>
             </ul>
@@ -138,7 +138,7 @@
             ?>">
               <i class="material-symbols-outlined">money</i>
               <p>
-                Expense
+                Materials
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>

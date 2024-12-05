@@ -17,7 +17,7 @@
                     </div>
                      <form id="addexpenseCat">
                     <div class="form-group">
-                        <label for="expense_catName">Expene Catagory name</label>
+                        <label for="expense_catName">Expene Category name</label>
                         <input type="text" class="form-control" id="expense_catName" name="expense_catName" placeholder="Expense catagory name">
                     </div>
                             <div class="form-group">
@@ -25,7 +25,7 @@
                             <textarea  rows="3" class="form-control" id="expesecatDescrip" name="expesecatDescrip"></textarea>
                           </div>
                           <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block mt-4 rounded-0">Add catagory</button>
+                            <button type="submit" class="btn btn-primary btn-block mt-4 rounded-0">Add category</button>
                           </div>
                         </form>
                       <!-- </div> -->

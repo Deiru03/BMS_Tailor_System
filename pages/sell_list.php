@@ -10,7 +10,7 @@
           <div class="col-md-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Catagory</li>
+              <li class="breadcrumb-item active">Category</li>
             </ol>
             </div><!-- /.col -->
             </div><!-- /.row -->
@@ -22,7 +22,7 @@
             <div class="container-fluid">
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title"><b>Total sell List</b></h3>
+                    <h3 class="card-title"><b>Total sales List</b></h3>
                     <a href="index.php?page=quick_sell" target="_blank" class="btn btn-primary btn-sm float-right rounded-0" style="margin:8px;"><i class="fas fa-plus"></i> New sell</a>
                   </div>
                   
