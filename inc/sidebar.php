@@ -120,10 +120,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=sell_return_list" class="nav-link <?php echo $actual_link=='sell_return_list'?'active':'';?>">
-                  <!-- <i class="fas fa-align-justify nav-icon"></i> -->
-                  <p>Sales return list</p>
-                </a>
+               
               </li>
             </ul>
           </li>
@@ -143,23 +140,18 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="index.php?page=add_expense" class="nav-link <?php echo $actual_link=='add_expense'?'active':'';?>">
-                  <!-- <i class="far fa-circle nav-icon"></i> -->
-                  <p>New expense</p>
-                </a>
-              </li>
+            
               <li class="nav-item">
                 <a href="index.php?page=exspense_list" class="nav-link <?php echo $actual_link=='exspense_list'?'active':'';?>">
                   <!-- <i class="fas fa-align-justify nav-icon"></i> -->
-                  <p>Expense list</p>
+                  <p>Expenses materials list</p>
                 </a>
               </li>
               
               <li class="nav-item">
                 <a href="index.php?page=expense_catagory_list" class="nav-link <?php echo $actual_link=='expense_catagory_list'?'active':'';?>">
                   <!-- <i class="fas fa-align-justify nav-icon"></i> -->
-                  <p>Expense category list</p>
+                  <p>Materials category list</p>
                 </a>
               </li>
             </ul>
@@ -211,12 +203,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="index.php?page=profit_loss" class="nav-link <?php echo $actual_link=='profit_loss'?'active':'';?>">
-                 
-                  <p>Profit loss report</p>
-                </a>
-              </li>
+              
               <li class="nav-item">
                 <a href="index.php?page=sales_report" class="nav-link <?php echo $actual_link=='sales_report'?'active':'';?>">
                  
@@ -229,18 +216,8 @@
                   <p>Purchase report</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="index.php?page=purchase_pay_report" class="nav-link <?php echo $actual_link=='purchase_pay_report'?'active':'';?>">
-                  
-                  <p>Purchase payment report</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="index.php?page=sell_pay_report" class="nav-link <?php echo $actual_link=='sell_pay_report'?'active':'';?>">
-                  
-                  <p>Sales payment report</p>
-                </a>
-              </li>
+              <
+             
             </ul>
           </li>
         <li class="nav-item has-treeview">

@@ -63,9 +63,36 @@ $actual_link = explode('=', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
-<marquee behavior="scroll" direction="left" scrollamount="4"><p style="color: red;">
-               
-            </marquee>
+    <?php
+      $current_page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
+      
+      $header_name = ucfirst($current_page);
+      if ($current_page == 'member') {
+          $header_name = "Customers";
+      } elseif ($current_page == 'member_edit') {
+          $header_name = "Customer Edit";
+      } elseif ($current_page == 'suppliar') {
+          $header_name = "Suppliers";
+      } elseif ($current_page == 'suppliar_edit') {
+          $header_name = "Supplier Edit";
+      } elseif ($current_page == 'product') {
+          $header_name = "Products";
+      } elseif ($current_page == 'product_edit') {
+          $header_name = "Product Edit";
+      } elseif ($current_page == 'invoice') {
+          $header_name = "Invoice";
+      } elseif ($current_page == 'invoice_edit') {
+          $header_name = "Invoice Edit";
+      } elseif ($current_page == 'report') {
+          $header_name = "Report";
+      } elseif ($current_page == 'report_edit') {
+          $header_name = "Report Edit";
+      }
+    ?>
+    <h3 class="mt-2" style="color:rgb(75, 90, 110);">
+      <?php echo $header_name; ?>
+    </h3>
+  <marquee behavior="scroll" direction="left" scrollamount="4"><p style="color: red;"></marquee>
  <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       

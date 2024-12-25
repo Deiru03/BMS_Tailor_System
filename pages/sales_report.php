@@ -78,7 +78,7 @@
 				<th>customer id</th>
 				<th>customer name</th>
 				<th>invoice total</th>
-				<th>Paid paymen</th>
+				<th>Paid payment</th>
 				<th>Due amount</th>
 			</thead>
 			<tbody id="search_sales_report_res">

@@ -4,7 +4,7 @@
                     
                     <!-- Modal Header -->
                     <div class="modal-header">
-                      <h4 class="modal-title">Add New Category</h4>
+                      <h4 class="modal-title">Add New materials</h4>
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <!-- Modal body -->
@@ -17,7 +17,7 @@
                     </div>
                      <form id="addexpenseCat">
                     <div class="form-group">
-                        <label for="expense_catName">Expene Category name</label>
+                        <label for="expense_catName">Materials Category name</label>
                         <input type="text" class="form-control" id="expense_catName" name="expense_catName" placeholder="Expense catagory name">
                     </div>
                             <div class="form-group">
@@ -25,7 +25,7 @@
                             <textarea  rows="3" class="form-control" id="expesecatDescrip" name="expesecatDescrip"></textarea>
                           </div>
                           <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block mt-4 rounded-0">Add category</button>
+                            <button type="submit" class="btn btn-primary btn-block mt-4 rounded-0">Add</button>
                           </div>
                         </form>
                       <!-- </div> -->

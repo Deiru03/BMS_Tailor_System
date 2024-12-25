@@ -24,8 +24,8 @@
               <div class="card">
             <div class="card-header">
                 <h3 class="card-title"><b>All materials category</b></h3>
-             <a href="index.php?page=add_expense_catagory" class="btn btn-primary btn-sm float-right rounded-0">Add materials category</a> 
-                <button type="button" class="btn btn-primary btn-sm float-right rounded-0" data-toggle="modal" data-target=".expenseCatModal"><i class="fas fa-plus"></i> expense catagory</button>
+        
+                <button type="button" class="btn btn-primary btn-sm float-right rounded-0" data-toggle="modal" data-target=".expenseCatModal"><i class="fas fa-plus"></i> Add Materials</button>
 
               </div>
               <!-- /.card-header -->
@@ -35,8 +35,8 @@
                     <table id="ex_catagoryTable" class="display dataTable text-center">
                       <thead>
                         <tr>
-                          <th>SI</th>
-                          <th>Catagory name</th>
+                          <th>#</th>
+                          <th>Materials name</th>
                           <th>Description</th>
                           <th>Action</th>
                         </tr>

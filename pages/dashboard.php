@@ -1,4 +1,4 @@
-  <div class="content-wrapper">
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -6,12 +6,11 @@
           <div class="col-sm-6">
             <h1 class="m-0 text-dark"><!-- Dashboard v2 --></h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
-          </div><!-- /.col -->
+            <div class="col-sm-6 mt-5 text-left">
+              <ol class="breadcrumb" style="position: relative; top: 50%; transform: translateY(-50%); background-color: transparent;">
+                <li class="breadcrumb-item active" style="color:rgb(54, 54, 54); font-weight: 400;"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</li>
+              </ol>
+            </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -21,7 +20,7 @@
       <!-- .row -->
       <div class="row">
 
-        <div class="col-xl-3 col-xxl-6 col-sm-6">
+        <div class="col-xl-4 col-xxl-6 col-sm-6">
           <div class="info-box bg-danger ">
             <div class="info-box-content">
               <span class="info-box-text">Total customer</span>
@@ -53,7 +52,7 @@
 
 
         <!-- /.col -->
-        <div class="col-xl-3 col-xxl-6 col-sm-6">
+        <div class="col-xl-4 col-xxl-6 col-sm-6">
           <div class="info-box  bg-success">
             <div class="info-box-content">
               <span class="info-box-text">Total Suppliers</span>
@@ -68,8 +67,8 @@
           </div>
           <!-- /.info-box -->
         </div>
-
-        <div class="col-xl-3 col-xxl-6 col-sm-6">
+<br>
+        <div class="col-xl-4 col-xxl-6 col-sm-6">
           <div class="info-box bg-info ">
 
             <div class="info-box-content">
@@ -91,27 +90,8 @@
           <!-- /.info-box -->
         </div>
 
+       <! -- center ko to -->
 
-        <div class="col-xl-3 col-xxl-6 col-sm-6">
-          <div class="info-box bg-secondary ">
-
-            <div class="info-box-content">
-              <span class="info-box-text">Total purchase</span>
-              <span class="info-box-number">
-                <?php
-                $stmt = $pdo->prepare("SELECT SUM(`purchase_subtotal`) FROM `purchase_products`");
-                $stmt->execute();
-                $res = $stmt->fetch(PDO::FETCH_NUM);
-                echo $total_purchase =  $res[0];
-                ?>
-              </span>
-            </div>
-            <span class="info-box-icon elevation-1"><i class="material-symbols-outlined">payments</i></span>
-
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
         <!-- /.col -->
 
         <!-- fix for small devices only -->
@@ -139,8 +119,8 @@
         </div> -->
         <!-- /.col -->
       </div>
-      <!-- /.row -->
-      <?php
+        <!-- /.row -->
+        <?php
       function getSales($pdo, $start_date, $end_date)
       {
         $stmt = $pdo->prepare("SELECT SUM(`net_total`) FROM `invoice` WHERE `order_date` BETWEEN :start_date AND :end_date");
@@ -265,8 +245,9 @@
                       <th>#</th>
                       <th>ID</th>
                       <th>name</th>
+                      <th>Quantity Alert</th>
                       <th>Quantity</th>
-                      <th>price</th>
+        
                     </tr>
                   </thead>
                   <tbody>
@@ -274,9 +255,6 @@
                     $stmt = $pdo->prepare("SELECT * FROM `products` WHERE `quantity` <= `alert_quanttity` ; ");
                     $stmt->execute();
                     $res = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-
-
                     foreach ($res as $product) {
                     ?>
                       <tr>
@@ -284,23 +262,19 @@
                         <td><?= $product->product_id; ?></td>
                         <td><?= $product->product_name; ?></td>
                         <td><?= $product->quantity; ?></td>
+                        <td><?= $product->alert_quanttity; ?></td>
                       </tr>
                     <?php
                     }
-
-
-
-
                     ?>
 
                   </tbody>
                 </table>
+                
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><!--/. container-fluid -->
+       
+
+
     </section>
     <!-- /.content -->
   </div>
@@ -312,7 +286,7 @@
       data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
-          label: 'Monthly Income (PHP)',
+          label: 'Monthly Income (Sales)',
           data: monthlyIncomeData,
           backgroundColor: [
             'rgba(75, 192, 192, 0.2)',
@@ -364,3 +338,4 @@
       }
     });
   </script>
+  

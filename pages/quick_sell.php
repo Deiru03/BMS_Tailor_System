@@ -10,7 +10,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">new sales</li>
+              <li class="breadcrumb-item active">new sell</li>
             </ol>
             </div><!-- /.col -->
             </div><!-- /.row -->
@@ -62,9 +62,9 @@
                       <thead>
                         <th>#</th>
                         <th>Product</th>
-                        <th>Total qunatity</th>
+                        <th>Total quantity</th>
                         <th>Price</th>
-                        <th>order qunatity</th>
+                        <th>order quantity</th>
                         <th>Total Price</th>
                         <th>Product name</th>
                         <th>Action</th>
@@ -83,7 +83,7 @@
                       <div class="form-group">
                         <div class="row">
                           <div class="col-md-3">
-                            <label for="subtotal">Subtotal</label>
+                            <label for="subtotal">Subtoal</label>
                           </div> 
                           <div class="col-md-8">
                             <input type="number" class="form-control form-control-sm" name="subtotal" id="subtotal"></div>  
@@ -171,7 +171,8 @@
                        </div>
                      </div>
                      <div class="form-group text-center">
-                       <button type="submit" class="btn btn-success btn-block" id="sellBtn">Payment</button>
+                       <button type="submit" class="btn btn-success btn-block" id="sellBtn">Make sell</button>
+
                      </div>
                     </div>
                   </div>
@@ -183,4 +184,26 @@
           </section>
           <!-- /.content -->
         </div>
-        <!-- /.content-wrapper
+   
+
+<!-- Success Modal -->
+<div class="modal fade" id="salesSuccessModal" tabindex="-1" aria-labelledby="salesSuccessModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="salesSuccessModalLabel">Sales Success</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Your sale has been successfully processed!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="newSaleBtn">Create New Sale</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Include Bootstrap JS (required for modal to work) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>

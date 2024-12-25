@@ -66,7 +66,7 @@
                             <textarea rows="3" class="form-control" placeholder="Member complect Address" id="address" name="address"></textarea>
                            </div>
                          
-                          <button type="submit" class="btn btn-primary btn-block rounded-0">Add member</button>
+                          <button type="submit" class="btn btn-primary btn-block rounded-0">Add</button>
                          </form>
                     </div>
                   </div>

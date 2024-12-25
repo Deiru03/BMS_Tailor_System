@@ -38,8 +38,8 @@
                             <th>Category</th>
                             <th>Source</th>
                             <th>quantity</th>
-                            <th>Buying Price</th>
-                            <th>Selling Price</th>
+                            <th></th>
+                            <th>alerts Quantity</th>
                             <th>Action</th>
                           </tr>
                         </thead>

@@ -4,7 +4,7 @@
           <section class="content mt-5">
             <div class="container-fluid">
              <div class="card-header">
-                <h3 class="card-title mt-3">Add Catagory catagory</h3>
+                <h3 class="card-title mt-3">Add materialss category</h3>
               </div>
               <!-- /.card-header -->
                <div class="row">
@@ -13,7 +13,7 @@
                      <div class="card-body">
                 <form id="addexpenseCat">
                     <div class="form-group">
-                        <label for="expense_catName">Expene Catagory name</label>
+                        <label for="expense_catName">materials Catagory name</label>
                         <input type="text" class="form-control" id="expense_catName" name="expense_catName" placeholder="Expense catagory name">
                     </div>
                             <div class="form-group">

@@ -85,16 +85,16 @@
                             <input type="text" class="form-control" id="sku" placeholder="product SKU" name="sku">
                            </div>
                          </div>
-                         <!--  <div class="col-md-4 col-lg-4">
+                      <div class="col-md-4 col-lg-4">
                             <div class="form-group">
                             <label for="quantity">Quantity :</label>
                             <input type="number" class="form-control" id="quantity" placeholder="product quantity" name="quantity">
                           </div>
-                         </div> -->
+                         </div> 
                           <div class="col-md-6">
                             <div class="form-group">
-                            <label for="alert_quantity">Alert Quantity * :</label>
-                            <input type="number" class="form-control" id="alert_quantity" placeholder="alert quantity" name="alert_quantity">
+                            <label for="alert_quantity">Stocks level * :</label>
+                            <input type="number" class="form-control" id="alert_quantity" placeholder="stock level" name="alert_quantity">
                           </div>
                          </div>
                          </div>
