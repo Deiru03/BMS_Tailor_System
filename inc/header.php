@@ -88,6 +88,7 @@ $actual_link = explode('=', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
       } elseif ($current_page == 'report_edit') {
           $header_name = "Report Edit";
       }
+      
     ?>
     <h3 class="mt-2" style="color:rgb(75, 90, 110);">
       <?php echo $header_name; ?>
