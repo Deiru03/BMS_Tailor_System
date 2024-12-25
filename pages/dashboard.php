@@ -7,9 +7,9 @@
             <h1 class="m-0 text-dark"><!-- Dashboard v2 --></h1>
           </div><!-- /.col -->
             <div class="col-sm-6 mt-5 text-left">
-              <ol class="breadcrumb" style="position: relative; top: 50%; transform: translateY(-50%); background-color: transparent;">
+              <!-- <ol class="breadcrumb" style="position: relative; top: 50%; transform: translateY(-50%); background-color: transparent;">
                 <li class="breadcrumb-item active" style="color:rgb(54, 54, 54); font-weight: 400;"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</li>
-              </ol>
+              </ol> -->
             </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->

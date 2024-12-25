@@ -3,8 +3,7 @@
   <aside class="main-sidebar sidebar ">
 
     <!-- Brand Logo -->
-
-      <img src="dist/img/log.jpg" alt="logo" class="brand-image ">
+    <img src="dist/img/log.jpg" alt="logo" style="width: 200px; height: auto; margin: 10px auto; display: block;">
      
     </a>
 

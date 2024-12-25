@@ -79,6 +79,16 @@ $actual_link = explode('=', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
           $header_name = "Products";
       } elseif ($current_page == 'product_edit') {
           $header_name = "Product Edit";
+      } elseif ($current_page == 'product_list') {
+          $header_name = "Product List";
+      } elseif ($current_page == 'other_product_list') {
+          $header_name = "Other Product List";
+      } elseif ($current_page == 'purchase') {
+          $header_name = 'Purchase';
+      } elseif ($current_page == 'purchase_edit') {
+          $header_name = "Purchase Edit";
+      } elseif ($current_page == "purchase_report") {
+          $header_name = "Purchase Reports";
       } elseif ($current_page == 'invoice') {
           $header_name = "Invoice";
       } elseif ($current_page == 'invoice_edit') {
@@ -87,10 +97,44 @@ $actual_link = explode('=', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
           $header_name = "Report";
       } elseif ($current_page == 'report_edit') {
           $header_name = "Report Edit";
+      } elseif ($current_page == "add_product") {
+          $header_name = "Add Product";
+      } elseif ($current_page == "category") {
+          $header_name = "Categories";
+      } elseif ($current_page == "category_edit") {
+        $header_name = "Category Edit";
+      } elseif ($current_page == "profile") {
+        $header_name = "Profile";
+      } elseif ($current_page == "error_page") {
+        $header_name = "Error Page";
+      } elseif ($current_page == "quick_sell") {
+        $header_name = "Quick Sell";
+      } elseif ($current_page == "quick_sell_edit") {
+        $header_name = "Quick Sell Edit";
+      } elseif ($current_page == "sell_list") {
+        $header_name = "Sell Reports";
+      } elseif ($current_page == "sell_return") {
+        $header_name = "Sell Return";
+      } elseif ($current_page == "sell_return_edit") {
+        $header_name = "Sell Return Edit";
+      } elseif ($current_page == "sell_return_report") {
+        $header_name = "Sell Return Reports";
+      } elseif ($current_page == "exspense_list") {
+        $header_name = "Expense List Materials";
+      } elseif ($current_page == "expense_edit") {
+        $header_name = "Expense Edit";
+      } elseif ($current_page == "expense_catagory_list") {
+        $header_name = "Expense Category List";
+      } elseif ($current_page == "add_stuff") {
+        $header_name = "Add Staff";
+      } elseif ($current_page == "staff_list") {
+        $header_name = "Staff List";
+      } elseif ($current_page == "sales_report") {
+        $header_name = "Sales Report";
       }
-      
+
     ?>
-    <h3 class="mt-2" style="color:rgb(75, 90, 110);">
+    <h3 class="mt-2 px-4 w-50" style="color:rgb(75, 90, 110);">
       <?php echo $header_name; ?>
     </h3>
   <marquee behavior="scroll" direction="left" scrollamount="4"><p style="color: red;"></marquee>

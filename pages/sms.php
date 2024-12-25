@@ -8,10 +8,10 @@
           <h1 class="m-0 text-dark"><!-- Dashboard v2 --></h1>
           </div><!-- /.col -->
           <div class="col-sm-6 mt-5">
-            <ol class="breadcrumb float-sm-right">
+            <!-- <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php?page=dashboard">Home</a></li>
               <li class="breadcrumb-item active">Sens sms</li>
-            </ol>
+            </ol> -->
             </div><!-- /.col -->
             </div><!-- /.row -->
             </div><!-- /.container-fluid -->
