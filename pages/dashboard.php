@@ -20,7 +20,7 @@
       <!-- .row -->
       <div class="row">
 
-        <div class="col-xl-4 col-xxl-6 col-sm-6">
+        <div class="col-xl-4 col-xxl-6 col-sm-6" onclick="window.location='index.php?page=member'">
           <div class="info-box bg-danger ">
             <div class="info-box-content">
               <span class="info-box-text">Total customer</span>
@@ -34,25 +34,13 @@
                 supervisor_account</i></span>
             <!-- /.info-box-content -->
           </div>
-
-
-
-
-
           <!-- fix for small devices only -->
           <div class="clearfix hidden-md-up"></div>
-
-    
-           
-          <!-- /.col -->
-
-          <!-- /.info-box -->
-
         </div>
 
 
         <!-- /.col -->
-        <div class="col-xl-4 col-xxl-6 col-sm-6">
+        <div class="col-xl-4 col-xxl-6 col-sm-6" onclick="window.location='index.php?page=suppliar'">
           <div class="info-box  bg-success">
             <div class="info-box-content">
               <span class="info-box-text">Total Suppliers</span>
@@ -67,8 +55,9 @@
           </div>
           <!-- /.info-box -->
         </div>
-<br>
-        <div class="col-xl-4 col-xxl-6 col-sm-6">
+      <br>
+
+        <div class="col-xl-4 col-xxl-6 col-sm-6" onclick="window.location='index.php?page=sell_list'">
           <div class="info-box bg-info ">
 
             <div class="info-box-content">

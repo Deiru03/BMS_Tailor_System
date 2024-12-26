@@ -112,7 +112,7 @@ $actual_link = explode('=', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
       } elseif ($current_page == "quick_sell_edit") {
         $header_name = "Quick Sell Edit";
       } elseif ($current_page == "sell_list") {
-        $header_name = "Sell Reports";
+        $header_name = "Sales List";
       } elseif ($current_page == "sell_return") {
         $header_name = "Sell Return";
       } elseif ($current_page == "sell_return_edit") {
@@ -131,6 +131,10 @@ $actual_link = explode('=', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
         $header_name = "Staff List";
       } elseif ($current_page == "sales_report") {
         $header_name = "Sales Report";
+      } elseif ($current_page == "return_sell") {
+        $header_name = "Return Sell"; 
+      } elseif ($current_page == "sell_pay") {
+        $header_name = "Sell Payments";
       }
 
     ?>
