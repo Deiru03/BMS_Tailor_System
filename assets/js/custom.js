@@ -327,12 +327,12 @@ $("#empTable").DataTable({
         e.find(".tprice").val(d);
         t(0);
       }),
-      $(document).on("keyup", "#s_discount_amount", function (a) {
-        a.preventDefault();
-        var t = $("#s_discount_amount").val(),
-          e = $("#subtotal").val() - t;
-        $("#netTotal").val(e);
-      }),
+      // $(document).on("keyup", "#s_discount_amount", function (a) {
+      //   a.preventDefault();
+      //   var t = $("#s_discount_amount").val(),
+      //     e = $("#subtotal").val() - t;
+      //   $("#netTotal").val(e);
+      // }),
       $("#paidBill").on("keyup", function (a) {
         a.preventDefault();
         var t = $(this).val(),
@@ -353,7 +353,7 @@ $("#empTable").DataTable({
                 var t = a;
                 1 != isNaN(t)
                   ? (window.location.href =
-                      "index.php?page=view_sell&&view_id=" + t)
+                      "index.php?page=view_sell&&view_id=" + a)
                   : alert("Failed to make sell. please try again.");
               },
             })

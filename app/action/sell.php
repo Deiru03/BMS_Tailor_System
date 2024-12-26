@@ -26,4 +26,22 @@
 
 		echo $result = $obj->storeCustomerOrderInvoice($invoice_number,$customer_name ,$orderdate,$find_customer_name,$total_quantity,$orderQuantity,$price,$totalPrice,$pro_name,$pid,$subtotal,$discount,$prev_due,$netTotal,$paidBill,$dueBill,$payMethode );
 	}
+
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+		// Add debugging statements to check if the request is received
+		error_log("Sell request received");
+	
+		// Process the request and return the response
+		// Example: $result = $obj->processSell($_POST);
+		// if ($result) {
+		//     echo $result; // Assuming $result contains the ID of the new sell
+		// } else {
+		//     echo "Error processing sell";
+		// }
+	
+		// For debugging purposes, let's just return a dummy response
+		echo ""; // Replace this with actual processing logic
+	} else {
+		echo "Invalid request method";
+	}
  ?>

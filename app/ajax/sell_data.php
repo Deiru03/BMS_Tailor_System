@@ -71,15 +71,15 @@ foreach($empRecords as $row){
       "return_status"=>$row['return_status'],
       "payment_type"=>$row['payment_type'],
        "action"=>'
-         <div class="btns-group">
-
-            <a href="index.php?page=view_sell&&view_id='.$row["id"].'" class="btn btn-primary btn-sm rounded-0 " type="button"><i class="fa fa-eye"></i></a>
-
-            <a href="index.php?page=return_sell&&reurn_id='.$row["id"].'" class="btn btn-dark btn-sm rounded-0 btn-4" type="button"><i class="fa-solid fa-arrow-rotate-left"></i></a>
-
-            <a href="index.php?page=edit_sell&&edit_id='.$row["id"].'"  class="btn btn-secondary btn-sm rounded-0" type="button"><i class="fas fa-edit"></i></a>
-            
-             <a href="index.php?page=sell_pay&&id='.$row['id'].'" class="dropdown-item" type="button">Pay now</a>
+          <div class="btns-group">
+            <hr>
+            <a href="index.php?page=view_sell&&view_id='.$row["id"].'" class="btn btn-primary btn-sm" type="button">View</a>
+            <hr>
+            <a href="index.php?page=return_sell&&reurn_id='.$row["id"].'" class="btn btn-dark btn-sm ml-1" type="button">Return</a>
+            <hr>
+            <a href="index.php?page=edit_sell&&edit_id='.$row["id"].'"  class="btn btn-primary btn-sm ml-1" type="button">Edit</a>
+            <hr>
+            <a href="index.php?page=sell_pay&&id='.$row['id'].'" class="btn btn-dark btn-sm ml-1" type="button">Pay</a>
           </div>
         </div>
       ',

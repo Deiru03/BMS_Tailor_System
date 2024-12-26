@@ -213,8 +213,9 @@ public function storeCustomerOrderInvoice($invoice_number,$customer_name ,$order
 				if ($remain_quantity < 0) {
 					return "Sorry ! you haven't the quantity";
 				}else{
-					$stmt = $this->pdo->prepare("UPDATE `products` SET `quantity`=$remain_quantity WHERE `id` = $pid[$i]");
-					$stmt->bindParam(":value", $value);
+					$stmt = $this->pdo->prepare("UPDATE `products` SET `quantity`=:remain_quantity WHERE `id` = :pid");
+					$stmt->bindParam(":remain_quantity", $remain_quantity, PDO::PARAM_INT);
+					$stmt->bindParam(":pid", $pid[$i], PDO::PARAM_INT);
 					$stmt->execute();
 				}
 
