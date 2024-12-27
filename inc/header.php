@@ -65,80 +65,46 @@ $actual_link = explode('=', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
     </ul>
     <?php
       $current_page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
-      
-      $header_name = ucfirst($current_page);
-      if ($current_page == 'member') {
-          $header_name = "Customers";
-      } elseif ($current_page == 'member_edit') {
-          $header_name = "Customer Edit";
-      } elseif ($current_page == 'suppliar') {
-          $header_name = "Suppliers";
-      } elseif ($current_page == 'suppliar_edit') {
-          $header_name = "Supplier Edit";
-      } elseif ($current_page == 'product') {
-          $header_name = "Products";
-      } elseif ($current_page == 'product_edit') {
-          $header_name = "Product Edit";
-      } elseif ($current_page == 'product_list') {
-          $header_name = "Product List";
-      } elseif ($current_page == 'other_product_list') {
-          $header_name = "Other Product List";
-      } elseif ($current_page == 'purchase') {
-          $header_name = 'Purchase';
-      } elseif ($current_page == 'purchase_edit') {
-          $header_name = "Purchase Edit";
-      } elseif ($current_page == "purchase_report") {
-          $header_name = "Purchase Reports";
-      } elseif ($current_page == 'invoice') {
-          $header_name = "Invoice";
-      } elseif ($current_page == 'invoice_edit') {
-          $header_name = "Invoice Edit";
-      } elseif ($current_page == 'report') {
-          $header_name = "Report";
-      } elseif ($current_page == 'report_edit') {
-          $header_name = "Report Edit";
-      } elseif ($current_page == "add_product") {
-          $header_name = "Add Product";
-      } elseif ($current_page == "category") {
-          $header_name = "Categories";
-      } elseif ($current_page == "category_edit") {
-        $header_name = "Category Edit";
-      } elseif ($current_page == "profile") {
-        $header_name = "Profile";
-      } elseif ($current_page == "error_page") {
-        $header_name = "Error Page";
-      } elseif ($current_page == "quick_sell") {
-        $header_name = "Quick Sell";
-      } elseif ($current_page == "quick_sell_edit") {
-        $header_name = "Quick Sell Edit";
-      } elseif ($current_page == "sell_list") {
-        $header_name = "Sales List";
-      } elseif ($current_page == "sell_return") {
-        $header_name = "Sell Return";
-      } elseif ($current_page == "sell_return_edit") {
-        $header_name = "Sell Return Edit";
-      } elseif ($current_page == "sell_return_report") {
-        $header_name = "Sell Return Reports";
-      } elseif ($current_page == "exspense_list") {
-        $header_name = "Expense List Materials";
-      } elseif ($current_page == "expense_edit") {
-        $header_name = "Expense Edit";
-      } elseif ($current_page == "expense_catagory_list") {
-        $header_name = "Expense Category List";
-      } elseif ($current_page == "add_stuff") {
-        $header_name = "Add Staff";
-      } elseif ($current_page == "staff_list") {
-        $header_name = "Staff List";
-      } elseif ($current_page == "sales_report") {
-        $header_name = "Sales Report";
-      } elseif ($current_page == "return_sell") {
-        $header_name = "Return Sell"; 
-      } elseif ($current_page == "sell_pay") {
-        $header_name = "Sell Payments";
-      } elseif ($current_page == "view_sell") {
-        $header_name = "View Sales";
-      }
 
+      $page_headers = [
+          'member' => 'Customers',
+          'member_edit' => 'Customer Edit',
+          'suppliar' => 'Suppliers',
+          'suppliar_edit' => 'Supplier Edit',
+          'product' => 'Products',
+          'product_edit' => 'Product Edit',
+          'product_list' => 'Product List',
+          'other_product_list' => 'Other Product List',
+          'purchase' => 'Purchase',
+          'purchase_edit' => 'Purchase Edit',
+          'purchase_report' => 'Purchase Reports',
+          'invoice' => 'Invoice',
+          'invoice_edit' => 'Invoice Edit',
+          'report' => 'Report',
+          'report_edit' => 'Report Edit',
+          'add_product' => 'Add Product',
+          'category' => 'Categories',
+          'category_edit' => 'Category Edit',
+          'profile' => 'Profile',
+          'error_page' => 'Error Page',
+          'quick_sell' => 'Quick Sell',
+          'quick_sell_edit' => 'Quick Sell Edit',
+          'sell_list' => 'Sales List',
+          'sell_return' => 'Sell Return',
+          'sell_return_edit' => 'Sell Return Edit',
+          'sell_return_report' => 'Sell Return Reports',
+          'exspense_list' => 'Expense List Materials',
+          'expense_edit' => 'Expense Edit',
+          'expense_catagory_list' => 'Expense Category List',
+          'add_stuff' => 'Add Staff',
+          'staff_list' => 'Staff List',
+          'sales_report' => 'Sales Report',
+          'return_sell' => 'Return Sell',
+          'sell_pay' => 'Sell Payments',
+          'view_sell' => 'View Sales'
+      ];
+
+      $header_name = isset($page_headers[$current_page]) ? $page_headers[$current_page] : ucfirst($current_page);
     ?>
     <h3 class="mt-2 px-4 w-50" style="color:rgb(75, 90, 110);">
       <?php echo $header_name; ?>
