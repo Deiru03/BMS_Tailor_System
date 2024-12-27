@@ -20,18 +20,35 @@
       <!-- .row -->
       <div class="row">
 
+        <style>
+        .info-box {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .info-box:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .info-box-icon {
+            transition: transform 0.3s ease;
+        }
+        .info-box:hover .info-box-icon {
+            transform: rotate(10deg);
+        }
+        </style>
+
         <div class="col-xl-4 col-xxl-6 col-sm-6" onclick="window.location='index.php?page=member'">
           <div class="info-box bg-danger ">
             <div class="info-box-content">
               <span class="info-box-text">Total customer</span>
               <span class="info-box-number">
-                <?php
-                echo $all_customer = $obj->total_count('member');
-                ?>
+              <?php
+              echo $all_customer = $obj->total_count('member');
+              ?>
               </span>
             </div>
-            <span class="info-box-icon "><i class="material-symbols-outlined">
-                supervisor_account</i></span>
+            <span class="info-box-icon" style="font-size: 24px; font-weight: bold;"><i class="material-symbols-outlined">
+          supervisor_account</i></span>
             <!-- /.info-box-content -->
           </div>
           <!-- fix for small devices only -->
@@ -43,11 +60,11 @@
         <div class="col-xl-4 col-xxl-6 col-sm-6" onclick="window.location='index.php?page=suppliar'">
           <div class="info-box  bg-success">
             <div class="info-box-content">
-              <span class="info-box-text">Total Suppliers</span>
+              <span class="info-box-text" style="font-size: 24px; font-weight: bold;">Total Suppliers</span>
               <span class="info-box-number">
-                <?php
-                echo $all_customer = $obj->total_count('suppliar');
-                ?>
+              <?php
+              echo $all_customer = $obj->total_count('suppliar');
+              ?>
               </span>
             </div>
             <span class="info-box-icon elevation-1"><i class="material-symbols-outlined">group</i></span>
@@ -55,25 +72,22 @@
           </div>
           <!-- /.info-box -->
         </div>
-      <br>
+            <br>
 
         <div class="col-xl-4 col-xxl-6 col-sm-6" onclick="window.location='index.php?page=sell_list'">
           <div class="info-box bg-info ">
-
             <div class="info-box-content">
-              <span class="info-box-text">Total sales</span>
+              <span class="info-box-text" style="font-size: 24px; font-weight: bold;">Total sales</span>
               <span class="info-box-number">
-
-                <?php
-                $stmt = $pdo->prepare("SELECT SUM(`sub_total`) FROM `invoice`");
-                $stmt->execute();
-                $res = $stmt->fetch(PDO::FETCH_NUM);
-                echo $total_sell_amount =  $res[0];
-                ?>
+              <?php
+              $stmt = $pdo->prepare("SELECT SUM(`sub_total`) FROM `invoice`");
+              $stmt->execute();
+              $res = $stmt->fetch(PDO::FETCH_NUM);
+              echo $total_sell_amount =  $res[0];
+              ?>
               </span>
             </div>
             <span class="info-box-icon elevation-1"><i class="material-symbols-outlined">sell</i></span>
-
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
@@ -143,26 +157,26 @@
         <div class="col-md-6">
           <div class="info-box bg-cards-1">
             <div class="info-box-content text-center text-white">
-              <h2 class="info-box-text">Today</h2>
-              <span class="sell">Sales:
+              <h2 class="info-box-text" style="font-size: 24px; font-weight: bold;">Today</h2>
+              <span class="sell" style="font-size: 20px;">Sales:
                 <?php
                 $today_start = date('Y-m-d 00:00:00');
                 $today_end = date('Y-m-d 23:59:59');
-                echo getSales($pdo, $today_start, $today_end);
+                echo '<span style="font-size: 24px; font-weight: bold;">' . getSales($pdo, $today_start, $today_end) . '</span>';
                 ?>
               </span>
             </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="info-box bg-cards-2">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-box bg-cards-2">
             <div class="info-box-content text-center text-white">
-              <h2 class="info-box-text">Monthly</h2>
-              <span class="sell">Sales:
+              <h2 class="info-box-text" style="font-size: 24px; font-weight: bold;">Monthly</h2>
+              <span class="sell" style="font-size: 20px;">Sales:
                 <?php
                 $month_start = date('Y-m-01');
                 $month_end = date('Y-m-t');
-                echo getSales($pdo, $month_start, $month_end);
+                echo '<span style="font-size: 24px; font-weight: bold;">' . getSales($pdo, $month_start, $month_end) . '</span>';
                 ?>
               </span>
             </div>
@@ -224,7 +238,13 @@
         <div class="col-md-6 col-lg-6">
           <div class="card">
             <div class="card-header">
-              <b>Low Stock Alert</b>
+                <b>Low Stock Alert</b>
+                <div class="mt-2" style="font-size: 12px;">
+                <span style="background-color: #ffcdd2; padding: 2px 8px; border-radius: 3px; border: 1px solid rgb(88, 38, 37);">■</span> 
+                <span style="color: #333;">Out of Stock</span>
+                <span style="margin-left: 10px; background-color: #fff9c4; padding: 2px 8px; border-radius: 3px; border: 1px solid rgb(83, 78, 33);">■</span>
+                <span style="color: #333;">Low Stock</span>
+                </div>
             </div>
             <div class="card-body" style="margin-top: -5;">
                 <table class="display dataTable text-center">
@@ -237,29 +257,34 @@
                       <th style="padding: 12px; border-bottom: 2px solid #ddd;">Min Stock Level</th>
                     </tr>
                   </thead>
-                    <tbody>
-                    <?php
+                  <tbody>
+                  <?php
                     $stmt = $pdo->prepare("SELECT * FROM `products` WHERE `quantity` <= `alert_quanttity`");
                     $stmt->execute();
                     $res = $stmt->fetchAll(PDO::FETCH_OBJ);
-                    $i = 1; // Initialize counter
+                    $i = 1;
                     foreach ($res as $product) {
-                    ?>
-                      <tr>
+                      $rowColor = '';
+                        if ($product->quantity == 0) {
+                          $rowColor = 'background-color: #ffcdd2;'; // Red for zero stock
+                        } elseif ($product->quantity <= ($product->alert_quanttity * 0.5)) {
+                           $rowColor = 'background-color: #fff9c4;'; // Yellow for stock below 50% of alert quantity
+                        }
+                  ?>
+                    <tr style="<?= $rowColor ?>; color: #555;">
                       <td><?= $i; ?></td>
                       <td><?= $product->product_id; ?></td>
                       <td><?= $product->product_name; ?></td>
                       <td><?= $product->quantity; ?></td>
                       <td><?= $product->alert_quanttity; ?></td>
-                      </tr>
-                    <?php
-                      $i++; // Increment counter
-                    }
-                    ?>
-
+                    </tr>
+                  <?php
+                    $i++;
+                  }
+                  ?>
                   </tbody>
-                </table>
-              </div>
+                  </table>
+                </div>
             </div>
           </div>
         </div>

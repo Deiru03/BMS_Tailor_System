@@ -1,4 +1,4 @@
-@charset "UTF-8";!
+@charset "UTF-8";
 @charset "UTF-8";/*!
  @charset "UTF-8"; /*!
  *   AdminLTE v3.0.2-pre
@@ -2392,7 +2392,7 @@ fieldset:disabled a.btn {
   font-size: 19px !important;
 }
 .btn-secondary:hover {
-  color::#6777ef;
+  color:#6777ef;
 
 }
 .btn-secondary.focus,
@@ -2401,7 +2401,7 @@ fieldset:disabled a.btn {
 }
 .btn-secondary.disabled,
 .btn-secondary:disabled {
-  color::#6777ef;
+  color:#6777ef;
  
 }
 .btn-secondary:not(:disabled):not(.disabled).active,
