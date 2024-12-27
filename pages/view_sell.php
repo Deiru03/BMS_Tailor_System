@@ -136,27 +136,27 @@ footer.main-footer {
                           <div class="pruchase-view-description">
                             <table class="table">
                             <tr>
-                              <td>Sabtotal</td>
+                              <td>Sub Total</td>
                               <td>:</td>
                               <td><?=$sell_total->sub_total;?></td>
                             </tr>
                             <tr>
-                              <td>Previous due</td>
+                              <td>Previous Balance</td>
                               <td>:</td>
                               <td><?=$sell_total->pre_cus_due;?></td>
                             </tr>
                             <tr>
-                              <td>Net total</td>
+                              <td>Net Total</td>
                               <td>:</td>
                               <td><?=$sell_total->net_total;?></td>
                             </tr>
                             <tr>
-                              <td>paid amount</td>
+                              <td>Paid Amount</td>
                               <td>:</td>
                               <td><?=$sell_total->paid_amount;?></td>
                             </tr>
                             <tr>
-                              <td>due amount</td>
+                              <td>Remaining Balance</td>
                               <td>:</td>
                               <td><?=$sell_total->due_amount;?></td>
                             </tr>

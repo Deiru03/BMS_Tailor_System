@@ -123,7 +123,7 @@
                       <div class="form-group">
                        <div class="row">
                          <div class="col-md-3">
-                           <label for="netTotal">Due bill</label>
+                           <label for="netTotal">Net Total Amount</label>
                          </div>
                          <div class="col-md-8">
                           <input type="number" class="form-control form-control-sm" name="netTotal" id="netTotal">

@@ -135,6 +135,8 @@ $actual_link = explode('=', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
         $header_name = "Return Sell"; 
       } elseif ($current_page == "sell_pay") {
         $header_name = "Sell Payments";
+      } elseif ($current_page == "view_sell") {
+        $header_name = "View Sales";
       }
 
     ?>
