@@ -89,13 +89,13 @@
        </div>
         <div class="col-md-4 col-lg-4">
           <div class="form-group">
-          <label for="quantity">Quantity * :</label>
+          <label for="quantity">Product Stock Quantity* :</label>
           <input type="number" class="form-control" id="quantity" value="<?=$data->quantity;?>" name="quantity">
         </div>
        </div>
         <div class="col-md-4 col-lg-4">
           <div class="form-group">
-          <label for="alert_quantity"> Quantity * :</label>
+          <label for="alert_quantity"> Low Stock Alert Quantity* :</label>
           <input type="number" class="form-control" id="alert_quantity" name="alert_quantity" value="<?=$data->alert_quanttity;?>">
         </div>
        </div>
@@ -108,7 +108,7 @@
        </div>
         <div class="col-md-4 col-lg-4">
          <div class="form-group">
-          <label for="selling_price">alert quantity * :</label>
+          <label for="selling_price">Product Price * :</label>
           <input type="number" class="form-control" id="selling_price" value="<?=$data->sell_price;?>" name="selling_price">
         </div>
        </div>

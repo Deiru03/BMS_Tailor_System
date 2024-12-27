@@ -83,7 +83,7 @@
                       <div class="form-group">
                         <div class="row">
                           <div class="col-md-3">
-                            <label for="subtotal">Subtoal</label>
+                            <label for="subtotal">Sub Total</label>
                           </div> 
                           <div class="col-md-8">
                             <input type="number" class="form-control form-control-sm" name="subtotal" id="subtotal"></div>  
@@ -113,7 +113,7 @@
                       <div class="form-group">
                        <div class="row">
                          <div class="col-md-3">
-                           <label for="prev_due">previous total due</label>
+                           <label for="prev_due">Previous Balance</label>
                          </div>
                          <div class="col-md-8">
                           <input type="number" class="form-control form-control-sm" name="prev_due" id="prev_due">
@@ -123,7 +123,7 @@
                       <div class="form-group">
                        <div class="row">
                          <div class="col-md-3">
-                           <label for="netTotal">Net Total</label>
+                           <label for="netTotal">Due bill</label>
                          </div>
                          <div class="col-md-8">
                           <input type="number" class="form-control form-control-sm" name="netTotal" id="netTotal">
@@ -133,7 +133,7 @@
                       <div class="form-group">
                         <div class="row">
                           <div class="col-md-3">
-                            <label for="paidBill">Paid bill</label>
+                            <label for="paidBill">Payment</label>
                           </div>
                           <div class="col-md-8">
                          <input type="number" class="form-control form-control-sm" name="paidBill" id="paidBill">
@@ -143,7 +143,7 @@
                       <div class="form-group">
                        <div class="row">
                          <div class="col-md-3">
-                           <label for="dueBill">Due bill</label>
+                           <label for="dueBill">Balance</label>
                          </div>
                          <div class="col-md-8">
                            <input type="text" class="form-control form-control-sm" name="dueBill" id="dueBill">
@@ -154,11 +154,11 @@
                       <div class="form-group">
                        <div class="row">
                          <div class="col-md-3">
-                           <label for="payMethode">Payment Methode</label>
+                           <label for="payMethode">Payment Method</label>
                          </div>
                          <div class="col-md-8">
                             <select name="payMethode" id="payMethode" class="form-control form-control-sm select2">
-                             <option selected disabled>Select a payment methode</option>
+                             <option selected disabled>Select a payment method</option>
                               <?php 
                               $all_methode = $obj->all('paymethode');
                                 foreach ($all_methode as $payMethode) {

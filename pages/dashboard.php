@@ -224,47 +224,49 @@
         <div class="col-md-6 col-lg-6">
           <div class="card">
             <div class="card-header">
-              <b>Products Stock</b>
+              <b>Low Stock Alert</b>
             </div>
-            <div class="card-body">
-              <div class="responsive">
+            <div class="card-body" style="margin-top: -5;">
                 <table class="display dataTable text-center">
                   <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>ID</th>
-                      <th>name</th>
-                      <th>Quantity Alert</th>
-                      <th>Quantity</th>
-        
+                    <tr style="background-color: rgba(0, 123, 255, 0.15);">
+                      <th style="padding: 12px; border-bottom: 2px solid #ddd;">#</th>
+                      <th style="padding: 12px; border-bottom: 2px solid #ddd;">ID</th>
+                      <th style="padding: 12px; border-bottom: 2px solid #ddd;">Name</th>
+                      <th style="padding: 12px; border-bottom: 2px solid #ddd;">Current Stock</th>
+                      <th style="padding: 12px; border-bottom: 2px solid #ddd;">Min Stock Level</th>
                     </tr>
                   </thead>
-                  <tbody>
+                    <tbody>
                     <?php
-                    $stmt = $pdo->prepare("SELECT * FROM `products` WHERE `quantity` <= `alert_quanttity` ; ");
+                    $stmt = $pdo->prepare("SELECT * FROM `products` WHERE `quantity` <= `alert_quanttity`");
                     $stmt->execute();
                     $res = $stmt->fetchAll(PDO::FETCH_OBJ);
+                    $i = 1; // Initialize counter
                     foreach ($res as $product) {
                     ?>
                       <tr>
-                        <td>1</td>
-                        <td><?= $product->product_id; ?></td>
-                        <td><?= $product->product_name; ?></td>
-                        <td><?= $product->quantity; ?></td>
-                        <td><?= $product->alert_quanttity; ?></td>
+                      <td><?= $i; ?></td>
+                      <td><?= $product->product_id; ?></td>
+                      <td><?= $product->product_name; ?></td>
+                      <td><?= $product->quantity; ?></td>
+                      <td><?= $product->alert_quanttity; ?></td>
                       </tr>
                     <?php
+                      $i++; // Increment counter
                     }
                     ?>
 
                   </tbody>
                 </table>
-                
               </div>
-       
-
-
-    </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
     <!-- /.content -->
   </div>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
