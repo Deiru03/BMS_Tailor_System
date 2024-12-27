@@ -23,10 +23,23 @@
               <!-- .row -->
               
                <div class="card">
-              <div class="card-header">
-                <h3 class="card-title"><b>DataTable with default features</b></h3>
-                <button type="button" class="btn btn-primary btn-sm float-right rounded-0" data-toggle="modal" data-target=".catagoryModal"><i class="fas fa-plus"></i> catagory</button>
-              </div>
+                <div class="card-header bg-light border-bottom">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h3 class="card-title mb-0" style="font-size: 1.25rem; color: #2c3e50;"><b>Category List</b></h3>
+                  <button type="button" class="btn btn-primary float-right rounded-pill shadow-sm" 
+                  style="transition: all 0.3s ease;
+                  background: linear-gradient(to right, #4e73df, #224abe);
+                  border: none;
+                  font-size: 16px;
+                  padding: 10px 24px;"
+                  onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
+                  onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
+                  data-toggle="modal" 
+                  data-target=".catagoryModal">
+                  <i class="fas fa-plus"></i> Add Category
+                  </button>
+                </div>
+                </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="table-responsive">
