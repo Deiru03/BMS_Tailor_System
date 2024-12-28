@@ -111,7 +111,7 @@
             </li>
             <li class="nav-item">
               <a href="index.php?page=sell_list" class="nav-link <?php echo $actual_link == 'sell_list' ? 'active' : ''; ?>">
-                <p>Sales List</p>
+                <p>Sales Records</p>
               </a>
             </li>
           </ul>

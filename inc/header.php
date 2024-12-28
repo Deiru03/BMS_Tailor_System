@@ -89,7 +89,7 @@ $actual_link = explode('=', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
           'error_page' => 'Error Page',
           'quick_sell' => 'New Sales / Quick Sell',
           'quick_sell_edit' => 'Quick Sell Edit',
-          'sell_list' => 'Sales List',
+          'sell_list' => 'Sales Transaction Records',
           'sell_return' => 'Sell Return',
           'sell_return_edit' => 'Sell Return Edit',
           'sell_return_report' => 'Sell Return Reports',
