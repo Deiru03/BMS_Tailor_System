@@ -1,147 +1,157 @@
-<?php 
+<?php
+// Configuration and error handling
+ini_set('display_errors', 0);
+error_reporting(E_ALL);
 
-  $get_all_table_query = "SHOW TABLES";
-  $stmt = $pdo->prepare($get_all_table_query);
-  $stmt->execute();
-  $res = $stmt->fetchAll();
-if (isset($_POST['submit'])) {
-  if (isset($_POST['table'])) {
-    $output = '';
+// Function to safely escape values
+function escapeValue($value) {
+  if (is_null($value)) {
+    return 'NULL';
+  }
+  return "'" . str_replace("'", "''", $value) . "'";
+}
 
-    foreach ($_POST['table'] as $table) {
-      $show_table_query = "SHOW CREATE TABLE".$table . "";
-      $stmt = $pdo->prepare($show_table_query);
-      $stmt->execute();
-      $show_table_res = $stmt->fetchAll();
+// Function to generate backup
+function generateBackup($pdo, $selectedTables) {
+  $output = "-- Database Backup Generated on " . date('Y-m-d H:i:s') . "\n";
+  $output .= "SET FOREIGN_KEY_CHECKS=0;\n\n";
 
-      foreach ($show_table_res as $show_table_row) {
-        $output .= "\n\n".$show_table_row["Create Table"]. "; \n\n";
-      }
-
-      $select_query = "SELECT * FROM ".$table."";
-      $stmt = $pdo->prepare($select_query);
-      $stmt->execute();
-      $total_row = $stmt->rowCount();
-
-      for ($count=0; $count < $total_row ; $count++) { 
-        $single_res = $stmt->fetch(PDO::FETCH_ASSOC);
-        $table_column_array = array_keys($single_res);
-        $table_value_array = array_values($single_res);
-        $output .= "\nINSERT INTO $table(";
-        $output .= "" . implode(", ", $table_column_array) . ")
-                  VALUES ( ";
-        $output .= "'" . implode("' ,'" , $table_value_array) . " ');
-                  \n";
-
-
-      }
+  foreach ($selectedTables as $table) {
+    // Sanitize table name to prevent SQL injection
+    $table = str_replace('`', '', $table);
+    
+    // Get table creation SQL
+    $stmt = $pdo->prepare("SHOW CREATE TABLE `$table`");
+    $stmt->execute();
+    $createTableResult = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if ($createTableResult) {
+      $output .= "DROP TABLE IF EXISTS `$table`;\n";
+      $output .= $createTableResult['Create Table'] . ";\n\n";
     }
-    $file_name = 'batabase_backup_on_' . date('Y-m-d').'.sql';
-    $file_handle = fopen($file_name, 'w+');
-    fwrite($file_handle, $output);
-    fclose($file_handle);
-  
 
-   // Download the SQL backup file to the browser
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename=' . basename($file_name));
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($file_name));
-        ob_clean();
-        flush();
-        readfile($file_name);
-        exec('rm ' . $file_name); 
+    // Get table data
+    $stmt = $pdo->prepare("SELECT * FROM `$table`");
+    $stmt->execute();
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-  }else{
-     $selectError = "Please select atleast 1 table name to export";
+    if (!empty($rows)) {
+      foreach ($rows as $row) {
+        $columns = array_keys($row);
+        $values = array_map('escapeValue', array_values($row));
+        
+        $output .= "INSERT INTO `$table` (`" . implode("`, `", $columns) . "`) VALUES \n";
+        $output .= "(" . implode(", ", $values) . ");\n";
+      }
+      $output .= "\n";
+    }
   }
-  }
- ?>
 
- <!-- Content Wrapper. Contains page content -->
+  $output .= "SET FOREIGN_KEY_CHECKS=1;\n";
+  return $output;
+}
+
+// Process form submission
+$error = '';
+$success = '';
+
+if (isset($_POST['submit']) && isset($_POST['table'])) {
+  try {
+    $selectedTables = array_map('trim', $_POST['table']);
+    
+    if (empty($selectedTables)) {
+      throw new Exception("Please select at least one table to export");
+    }
+
+    $backup = generateBackup($pdo, $selectedTables);
+    
+    // Generate unique filename
+    $filename = 'backup_' . date('Y-m-d_His') . '.sql';
+    $filepath = sys_get_temp_dir() . DIRECTORY_SEPARATOR . $filename;
+    
+    // Save file
+    if (file_put_contents($filepath, $backup) === false) {
+      throw new Exception("Failed to create backup file");
+    }
+
+    // Send file to browser
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename=' . basename($filename));
+    header('Content-Transfer-Encoding: binary');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($filepath));
+    
+    ob_clean();
+    flush();
+    readfile($filepath);
+    unlink($filepath); // Remove temporary file
+    exit;
+
+  } catch (Exception $e) {
+    $error = $e->getMessage();
+  }
+} elseif (isset($_POST['submit'])) {
+  $error = "Please select at least one table to export";
+}
+
+// Get all tables
+try {
+  $stmt = $pdo->query("SHOW TABLES");
+  $tables = $stmt->fetchAll(PDO::FETCH_COLUMN);
+} catch (PDOException $e) {
+  $error = "Failed to retrieve tables";
+  $tables = [];
+}
+?>
+
+<!-- HTML Template -->
 <div class="content-wrapper">
-  // <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid mt-3">
-      <div class="row">
-        <div class="col-md-6">
-          <h1 class="m-0 text-dark">Setting</h1>
-          </div><!-- /.col -->
-          <div class="col-md-6 mt-3">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Database backup</li>
-            </ol>
-            </div><!-- /.col -->
-            </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-          </div>
-          <!-- /.content-header -->
-          <!-- Main content -->
-          <section class="content">
-            <div class="container-fluid">
-                <div class="card">
-                  <div class="card-header">
-                    <h3 class="card-title">Take a database backup</h3>
-                  </div>
-                  <!-- /.card-header -->
-                  <div class="card-body">
-                    <?php 
-                        if (isset($selectError)) {
-                          echo "<div class='alert alert-danger'>". $selectError."</div>";
-                        }
-                     ?>
-                    <form method="post" action="#" id="exportForm">
-                      <div class="row">
-                      <?php 
-                          foreach ($res as $table) {
-                            ?>
-                             <div class="col-md-3 col-lg-3">
-                               <label>
-                               <input type="checkbox" class="checkbox_table" name="table[]" value='<?php echo $table['Tables_in_inventory']; ?>'> 
-                               <?php echo $table['Tables_in_inventory']; ?>
-                             </label>
-                             </div>
-                            <?php 
-                          }
-                       ?>
+      <h1 class="m-0 text-dark">Database Backup</h1>
+      <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active">Database backup</li>
+      </ol>
+    </div>
+  </div>
 
-                       </div>
-        
-                       <div class="form-group">
-                         <input type="submit" class="btn btn-info" name="submit" id="submit" value="Expor database">
-                       </div>
-                    </form>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Create Database Backup</h3>
+        </div>
+        <div class="card-body">
+          <?php if ($error): ?>
+            <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
+          <?php endif; ?>
+          
+          <form method="post" action="" id="exportForm">
+            <div class="row">
+              <?php foreach ($tables as $table): ?>
+                <div class="col-md-3 col-lg-3">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="table[]" 
+                         value="<?php echo htmlspecialchars($table); ?>">
+                    <label class="form-check-label">
+                      <?php echo htmlspecialchars($table); ?>
+                    </label>
                   </div>
-                  <!-- /.card-body -->
                 </div>
-                  <!-- /.card-body -->
-                </div>
-          </section>
-<!-- <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-          <script>
-            $(document).ready(function() {
-              $('#submit').click(function(event) {
-                event.preventDefault();
-                /* Act on the event */
-                var count = 0;
-                $('.checkbox_table').each(function() {
-                  if ($(this).is(':checked')) {
-                    count = count +1;
-                  }
-                  if (count > 0) {
-                    // $('#exportForm').submit();
-                  }else{
-                    alert("Please select atleast ont table for export");
-                    return false;
-                  }
-                });
-
-              });
-            });
-          </script> -->
+              <?php endforeach; ?>
+            </div>
+            <div class="form-group mt-3">
+              <button type="submit" class="btn btn-primary" name="submit">
+                Export Database
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
