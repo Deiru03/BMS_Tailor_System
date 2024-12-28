@@ -87,7 +87,7 @@
                       </div>
                       <div class="card-body">
                         <div class="form-group">
-                          <label class="form-label fw-bold">SKU</label>
+                          <label class="form-label fw-bold">SKU <small>(Stock Keeping Unit for product)</small></label>
                           <input type="text" class="form-control" id="sku" name="sku" placeholder="Enter product SKU">
                         </div>
                         <div class="form-group">
