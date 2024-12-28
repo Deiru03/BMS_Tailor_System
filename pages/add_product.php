@@ -1,165 +1,203 @@
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
+<div class="content-wrapper bg-light">
   <div class="content-header">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6">
-          <h1 class="m-0 text-dark"><!-- Dashboard v2 --></h1>
-          </div><!-- /.col -->
-          <div class="col-md-6">
-            <!-- <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
-            </ol> -->
-            </div><!-- /.col -->
-            </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-          </div>
-          <!-- /.content-header -->
-          <!-- Main content -->
-          <section class="content">
-            <div class="container-fluid">
-              <!-- .row -->
-               <div class="card">
-                  <div class="card-header">
-                    
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h3 class="card-title mb-0" style="font-size: 1.25rem; color: #2c3e50;"><b>Add a new product</b></h3>
-                        <button type="button" class="btn btn-primary float-right rounded-pill shadow-sm" 
-                          style="transition: all 0.3s ease;
-                          background: linear-gradient(to right, #4e73df, #224abe);
-                          border: none;
-                          font-size: 16px;
-                          padding: 10px 24px;"
-                          onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
-                          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
-                          data-toggle="modal" 
-                          data-target=".catagoryModal">
-                          <i class="fas fa-plus"></i> Add New Category
-                        </button>
-                      </div>
-                    </div>
-                  <div class="card-body">
-                     <div class="alert alert-primary alert-dismissible fade show addProductError-area" role="alert">
-                        <span id="addProductError"></span>
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                <form id="addProduct">
-                          <div class="row">
-                          <div class="col-md-6 ">
-                            <div class="form-group">
-                            <label for="product_name">Product name * :</label>
-                            <input type="text" class="form-control" id="product_name" placeholder="Product name" name="product_name">
-                          </div>
-                         </div>
-                          <div class="col-md-6">
-                             <div class="form-group">
-                            <label for="brand">Brand Name * :</label>
-                            <input type="text" class="form-control" id="brand" placeholder="Brand name" name="brand">
-                          </div>
-                         </div>
-                       </div>
-                        
-                          <div class="row">
-                            <div class="col-md-6">
-                               <div class="form-group">
-                                <label for="p_catagory">Product catagory * :</label>
-                                <select name="p_catagory" id="p_catagory" class="form-control select2">
-                                  <option disabled selected>Select a catagory</option>
-                                  <?php 
-                                    $all_catgory = $obj->all('catagory');
-                                    foreach ($all_catgory as $catagory) {
-                                      ?>  
-                                        <option value="<?=$catagory->id;?>"><?=$catagory->name;?></option>
-                                      <?php 
-                                    }
-                                   ?>
-                                </select>
-                             </div>
-                            </div>
-                          
-                         
-                         <div class="col-md-6">
-                             <div class="form-group">
-                            <label for="product_source">Product source * :</label>
-                            <select name="product_source" id="product_source" class="form-control select2">
-                              <option value="factory">Factory</option>
-                              <option value="buy">Buying</option>
-                            </select>
-                           </div>
-                         </div>
-                      </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                             <div class="form-group">
-                            <label for="sku">SKU <span style="color: #444;">(Stock Keeping Unit)</span> :</label>
-                            <input type="text" class="form-control" id="sku" placeholder="product SKU" name="sku">
-                           </div>
-                         </div>
-                        <div class="col-md-4 col-lg-4">
-                          <div class="form-group">
-                          <label for="quantity">Product Stock Quantity :</label>
-                          <input type="number" class="form-control" id="quantity" placeholder="product quantity" name="quantity">
-                        </div>
-                      </div> 
-                          <div class="col-md-6">
-                            <div class="form-group">
-                            <label for="alert_quantity">Stock Alert Threshold* <span style="color: #dc3545;">(System will notify when inventory falls below this level)</span>:</label>
-                            <input type="number" class="form-control" id="alert_quantity" placeholder="Enter threshold value" name="alert_quantity">
-                          </div>
-                         </div>
-                         </div>
-                       <!--   <div class="col-md-4 col-lg-4">
-                           <div class="form-group">
-                            <label for="buy_price">Buying Price :</label>
-                            <input type="number" class="form-control" id="buy_price" placeholder="buying price" name="buy_price">
-                          </div>
-                         </div> -->
-                         <!--  <div class="col-md-4 col-lg-4">
-                           <div class="form-group">
-                            <label for="selling_price">Selling Price :</label>
-                            <input type="number" class="form-control" id="selling_price" placeholder="selling price" name="selling_price">
-                          </div>
-                         </div> -->
-                        
-                           <div class="row text-center  buttons">
-                            <div class="col-md-6 offset-md-3 col-lg-6 offset-lg-3 mt-4">
-                              <button type="reset" class="btn btn-danger px-4 me-3 rounded-pill shadow-sm" 
-                                  style="transition: all 0.3s ease;
-                                  background: linear-gradient(to right, #dc3545, #c82333);
-                                  border: none;
-                                  font-size: 16px;
-                                  padding: 10px 30px;
-                                  width: 200px;
-                                  height: 45px;"
-                                  onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(220, 53, 69, 0.3)';"
-                                  onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';">
-                                  <i class="fas fa-undo-alt"></i> Reset Form
-                              </button>
-                              <button type="submit" class="btn btn-primary px-4 rounded-pill shadow-sm" 
-                                  style="transition: all 0.3s ease;
-                                  background: linear-gradient(to right, #4e73df, #224abe);
-                                  border: none;
-                                  font-size: 16px;
-                                  padding: 10px 30px;
-                                  width: 200px;
-                                  height: 45px;"
-                                  onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
-                                  onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';">
-                                  <i class="fas fa-save"></i> Add This Product
-                              </button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    
-                 </div>
-                
-                <!-- /.row -->
-                </div><!--/. container-fluid -->
-              </section>
-              <!-- /.content -->
+          <h1 class="m-0 text-dark"></h1>
+        </div>
+        <div class="col-md-6">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card shadow-lg">
+            <div class="card-header bg-gradient-primary text-white">
+              <div class="d-flex align-items-center justify-content-between">
+                <h3 class="card-title mb-0"><i class="fas fa-box-open mr-2"></i>Add New Product</h3>
+                <button type="button" class="btn btn-light rounded-pill"
+                  data-toggle="modal"
+                  data-target=".catagoryModal">
+                  <i class="fas fa-plus"></i> Add New Category
+                </button>
+              </div>
             </div>
-            <!-- /.content-wrapper
+
+            <div class="card-body bg-light">
+              <div class="alert alert-primary alert-dismissible fade show addProductError-area" role="alert">
+                <span id="addProductError"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <form id="addProduct" class="needs-validation">
+                <div class="row g-4">
+                  <!-- Product Details Section -->
+                  <div class="col-md-6">
+                    <div class="card shadow-sm h-100">
+                      <div class="card-header bg-light">
+                        <h5 class="mb-0">Basic Information</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="form-group">
+                          <label class="form-label fw-bold">Product Name *</label>
+                          <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name">
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label fw-bold">Brand Name *</label>
+                          <input type="text" class="form-control" id="brand" name="brand" placeholder="Enter brand name">
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label fw-bold">Category *</label>
+                          <select name="p_catagory" id="p_catagory" class="form-control select2">
+                            <option disabled selected>Select a category</option>
+                            <?php
+                            $all_catgory = $obj->all('catagory');
+                            foreach ($all_catgory as $catagory) {
+                            ?>
+                              <option value="<?= $catagory->id; ?>"><?= $catagory->name; ?></option>
+                            <?php
+                            }
+                            ?>
+                          </select>
+                        </div>
+                        <!-- Commented out Product Source
+            <div class="form-group">
+              <label class="form-label fw-bold">Product Source *</label>
+              <select name="product_source" id="product_source" class="form-control select2">
+                <option value="factory">Factory</option>
+                <option value="buy">Buying</option>
+              </select>
+            </div>
+            -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Inventory Section -->
+                  <div class="col-md-6">
+                    <div class="card shadow-sm h-100">
+                      <div class="card-header bg-light">
+                        <h5 class="mb-0">Inventory Details</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="form-group">
+                          <label class="form-label fw-bold">SKU</label>
+                          <input type="text" class="form-control" id="sku" name="sku" placeholder="Enter product SKU">
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label fw-bold">Stock Quantity</label>
+                          <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter quantity">
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label fw-bold">Alert Threshold *</label>
+                          <input type="number" class="form-control" id="alert_quantity" name="alert_quantity" placeholder="Enter threshold value">
+                          <small class="text-danger">System will notify when inventory falls below this level</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="row mt-4">
+                  <div class="col-12 text-center">
+                    <button type="reset" class="btn custom-btn custom-btn-danger btn-lg px-5 me-3">
+                      <i class="fas fa-undo-alt me-2"></i> Reset
+                    </button>
+                    <button type="submit" class="btn custom-btn custom-btn-primary btn-lg px-5">
+                      <i class="fas fa-save me-2"></i> Save or Add Product
+                    </button>
+                  </div>
+
+                  <style>
+                  .custom-btn {
+                    padding: 12px 30px;
+                    border-radius: 5px;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                    border: none;
+                    position: relative;
+                    overflow: hidden;
+                  }
+
+                  .custom-btn-primary {
+                    background: linear-gradient(135deg, #4e73df, #224abe);
+                    color: white;
+                  }
+
+                  .custom-btn-danger {
+                    background: linear-gradient(135deg, #e74a3b, #be2617);
+                    color: white;
+                  }
+
+                  .custom-btn:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                  }
+
+                  .custom-btn:active {
+                    transform: translateY(-1px);
+                  }
+
+                  .custom-btn-primary:hover {
+                    background: linear-gradient(135deg, #224abe, #4e73df);
+                  }
+
+                  .custom-btn-danger:hover {
+                    background: linear-gradient(135deg, #be2617, #e74a3b);
+                  }
+                  </style>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .card {
+        border-radius: 15px;
+        border: none;
+      }
+
+      .card-header {
+        border-radius: 15px 15px 0 0 !important;
+      }
+
+      .form-control {
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+        padding: 0.75rem;
+        transition: all 0.2s;
+      }
+
+      .form-control:focus {
+        border-color: #4e73df;
+        box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+      }
+
+      /* .btn {
+
+        .btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .select2-container--default .select2-selection--single {
+          height: 45px;
+          border-radius: 8px;
+          border: 1px solid #ced4da;
+        }
+        border: 1px solid #ced4da;
+      } */
+        </style>
+      </section>
+  </section>
+</div>
