@@ -62,9 +62,9 @@ foreach($empRecords as $row){
       "product_name"=>$row['product_name'],
       "brand_name"=>$row['brand_name'],
       "catagory_name"=>$row['catagory_name'],
-      "product_source"=>$row['product_source'],
+      // "product_source"=>$row['product_source'],
       "quantity"=>$row['quantity'],
-      "buy_price"=>$row['buy_price'],
+      "alert_quanttity"=>$row['alert_quanttity'],
       "sell_price"=>$row['sell_price'],
       "action"=>'
           <div class="btn-group" role="group" aria-label="Basic example">
