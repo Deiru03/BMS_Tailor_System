@@ -210,13 +210,13 @@
                        style="transition: all 0.3s ease;
                        background: linear-gradient(to right, #28a745, #20c997);
                        border: none;
-                       font-size: 16px;
-                       padding: 12px 30px;
-                       width: 100%;"
+                       font-size: 20px;
+                       padding: 12px 15px;
+                       width: 75%;"
                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(40, 167, 69, 0.3)';"
                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
                        id="sellBtn">
-                       <i class="fas fa-check-circle mr-2"></i> Complete Sale
+                       <i class="fas fa-check-circle mr-2"></i> Complete Sale Order
                        </button>
                      </div>
                     </div>
