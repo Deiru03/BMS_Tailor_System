@@ -40,7 +40,7 @@
         <div class="col-xl-4 col-xxl-6 col-sm-6" onclick="window.location='index.php?page=member'">
           <div class="info-box bg-danger ">
             <div class="info-box-content">
-              <span class="info-box-text">Total customer</span>
+              <span class="info-box-text" style="font-size: 24px; font-weight: bold;">Total customer</span>
               <span class="info-box-number">
               <?php
               echo $all_customer = $obj->total_count('member');
@@ -48,7 +48,7 @@
               </span>
             </div>
             <span class="info-box-icon" style="font-size: 24px; font-weight: bold;"><i class="material-symbols-outlined">
-          supervisor_account</i></span>
+            supervisor_account</i></span>
             <!-- /.info-box-content -->
           </div>
           <!-- fix for small devices only -->
