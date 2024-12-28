@@ -221,12 +221,64 @@ footer.main-footer {
                         </div>
                       </div>
 
-           <div class="view_sell_button-area">
-             <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="index.php?page=return_sell&&reurn_id=<?=$sell_total->id;?>" class="btn btn-info rounded-0 ml-2"><i class="fas fa-reply-all"></i> Return Sell</a>
-            <a href="index.php?page=edit_sell&&edit_id=<?=$sell_total->id;?>" class="btn btn-success rounded-0 ml-2"><i class="fas fa-edit"></i> Edit Sell</a>
-            <button type="button" onclick="window.print()" class="btn btn-primary ml-2"><i class="fas fa-file-pdf"></i> Print</button>
-          </div>
+                <div class="view_sell_button-area mt-4">
+                  <div class="d-flex justify-content-end">
+                    <a href="index.php?page=return_sell&&reurn_id=<?=$sell_total->id;?>" 
+                      class="btn mr-2" 
+                      style="padding: 10px 20px; border-radius: 5px; transition: all 0.3s ease; 
+                      box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+                      background-color: #e74c3c; 
+                      border: none;
+                      color: white;">
+                    <i class="fas fa-reply-all mr-1"></i> Return Sale
+                    </a>
+                    
+                    <a href="index.php?page=edit_sell&&edit_id=<?=$sell_total->id;?>" 
+                      class="btn mr-2" 
+                      style="padding: 10px 20px; border-radius: 5px; transition: all 0.3s ease; 
+                      box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+                      background-color: #2980b9; 
+                      border: none;
+                      color: white;">
+                      <i class="fas fa-edit mr-1"></i> Edit Sale
+                    </a>
+                  
+                    <button type="button" 
+                      onclick="window.print()" 
+                      class="btn" 
+                      style="padding: 10px 20px; border-radius: 5px; transition: all 0.3s ease; 
+                      box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+                      background-color: #7f8c8d; 
+                      border: none;
+                      color: white;">
+                    <i class="fas fa-print mr-1"></i> Print
+                    </button>
+                  </div>
+                </div>
+          <style>
+          .btn:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+          }
+
+          /* Return Sale button hover */
+          [href*="return_sell"]:hover {
+            background-color: #c0392b !important;
+            box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3) !important;
+          }
+
+          /* Edit Sale button hover */
+          [href*="edit_sell"]:hover {
+            background-color: #1a5276 !important;
+            box-shadow: 0 4px 8px rgba(41, 128, 185, 0.3) !important;
+          }
+
+          /* Print button hover */
+          [onclick*="print"]:hover {
+            background-color: #616a6b !important;
+            box-shadow: 0 4px 8px rgba(127, 140, 141, 0.3) !important;
+          }
+          </style>
            </div>
                   <?php  
                 }
