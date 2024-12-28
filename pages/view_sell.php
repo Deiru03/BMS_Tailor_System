@@ -26,13 +26,16 @@ footer.main-footer {
 <!-- Content Wrapper. Contains page content  -->
 <div class="content-wrapper">
  <!-- Main content -->
-          <section class="content mt-5">
-            <div class="container-fluid">
-              <div class="card view_sell_page_info">
-                <div class="card-header">
-                  Salesinformation
-                </div>
-                <div class="card-body">
+  <section class="content mt-5">
+    <div class="container-fluid">
+      <div class="card view_sell_page_info">
+        <div class="card-header" style="background: linear-gradient(45deg, #2c3e50, #3498db); color: white; padding: 15px 20px; border-radius: 5px 5px 0 0;">
+          <h3 class="card-title mb-0">
+            <i class="fas fa-shopping-cart mr-2"></i>
+            Sales Information
+          </h3>
+        </div>
+        <div class="card-body">
          <?php 
             if (isset($_GET['view_id'])) {
              $view_id = $_GET['view_id'];
@@ -43,124 +46,177 @@ footer.main-footer {
                 if ($sell_total) {
                   ?>
                 <div class="row">
-                  <div class="col-md-4 col-lg-4">
-                   <div class="purchase-suppliar-info">
-                    <p><i><b>Customer</b></i></p>
-                    <p><b>Name : <?=$customer->name;?></b></p>
-                    <p> Company : <?=$customer->company;?></p> 
-                    <p>Address : <?=$customer->address;?></p>
-                    <p>Phone : <?=$customer->con_num;?></p>
-                    <p>Email : <?=$customer->email;?></p>
-                    <p>Suplier id : <?=$customer->member_id;?></p>
-                   </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="purchase-suppliar-info" style="background: #f8f9fa; padding: 20px; width: 100%; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
+                      <h4 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px;">
+                        <i class="fas fa-user"></i> Customer Information
+                      </h4>
+                      <div class="customer-details" style="margin-top: 15px;">
+                        <p style="margin-bottom: 8px;">
+                        <span style="color: #7f8c8d; width: 100px; display: inline-block;"><i class="fas fa-user-circle"></i> Name:</span>
+                        <span style="color: #2c3e50; font-weight: 600;"><?=$customer->name;?></span>
+                        </p>
+                        <p style="margin-bottom: 8px;">
+                        <span style="color: #7f8c8d; width: 100px; display: inline-block;"><i class="fas fa-building"></i> Company:</span>
+                        <span style="color: #2c3e50;"><?=$customer->company;?></span>
+                        </p>
+                        <p style="margin-bottom: 8px;">
+                        <span style="color: #7f8c8d; width: 100px; display: inline-block;"><i class="fas fa-map-marker-alt"></i> Address:</span>
+                        <span style="color: #2c3e50;"><?=$customer->address;?></span>
+                        </p>
+                        <p style="margin-bottom: 8px;">
+                        <span style="color: #7f8c8d; width: 100px; display: inline-block;"><i class="fas fa-phone"></i> Phone:</span>
+                        <span style="color: #2c3e50;"><?=$customer->con_num;?></span>
+                        </p>
+                        <p style="margin-bottom: 8px;">
+                        <span style="color: #7f8c8d; width: 100px; display: inline-block;"><i class="fas fa-envelope"></i> Email:</span>
+                        <span style="color: #2c3e50;"><?=$customer->email;?></span>
+                        </p>
+                        <p style="margin-bottom: 8px;">
+                        <span style="color: #7f8c8d; width: 100px; display: inline-block;"><i class="fas fa-id-card"></i> ID:</span>
+                        <span style="color: #2c3e50;"><?=$customer->member_id;?></span>
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-md-4 col-lg-4"></div>
-                  <div class="col-md-4 col-lg-4">
-                    <p>purchase date : <?=$sell_total->order_date; ?></p>
-                    <p>Invoice no : <?=$sell_total->invoice_number; ?></p>
+                  <div class="col-md-6 col-lg-6">
+                  <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
+                    <h4 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px;">
+                    <i class="fas fa-file-invoice"></i> Invoice Details
+                    </h4>
+                    <p style="margin: 10px 0;">
+                    <span style="color: #7f8c8d;"><i class="far fa-calendar-alt"></i> Purchase Date:</span>
+                    <span style="color: #2c3e50; float: right;"><?=$sell_total->order_date; ?></span>
+                    </p>
+                    <p style="margin: 10px 0;">
+                    <span style="color: #7f8c8d;"><i class="fas fa-receipt"></i> Invoice No:</span>
+                    <span style="color: #2c3e50; float: right;"><?=$sell_total->invoice_number; ?></span>
+                    </p>
                   </div>
-                </div> 
+                  </div>
+                </div>
 
-                 <table class="display dataTable text-center mt-4">
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Product name</th>
-                            <th>brand name</th>
-                            <th>quantity</th>
-                            <th>unit price</th>
-                            <th>total price</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                         <?php 
-                         $invoice_id = $sell_total->id;
-                            
-                            
-                            $all_product = $obj->findWhere('invoice_details','invoice_no', $invoice_id);
-                            $i = 0;
-                              foreach ($all_product as $products) {
-                                $i++;
-                                $pid = $products->pid;
-                                $p_brand = $obj->find('products','id',$pid);
-                                ?>
-                                  <tr>
-                                    <td><?=$i?></td>
-                                    <td><?=$products->product_name?></td>
-                                    <td><?=$p_brand->brand_name?></td>
-                                    <td><?=$products->quantity?></td>
-                                    <td><?=$products->price / $products->quantity?></td>
-                                    <td><?=$products->price?></td>
-                                  </tr>
-                                <?php 
-                              }
-                          ?>  
-                        </tbody>
-                      </table>
+                <div class="table-responsive mt-4">
+                  <table class="table table-hover table-bordered" style="background: white; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
+                    <thead>
+                      <tr style="background: linear-gradient(45deg, #3498db, #2980b9);">
+                        <th style="color: white; padding: 15px; text-align: center">#</th>
+                        <th style="color: white; padding: 15px;">Product Name</th>
+                        <th style="color: white; padding: 15px;">Brand Name</th>
+                        <th style="color: white; padding: 15px; text-align: center">Quantity</th>
+                        <th style="color: white; padding: 15px; text-align: right">Unit Price</th>
+                        <th style="color: white; padding: 15px; text-align: right">Total Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php 
+                      $invoice_id = $sell_total->id;
+                      $all_product = $obj->findWhere('invoice_details','invoice_no', $invoice_id);
+                      $i = 0;
+                      foreach ($all_product as $products) {
+                        $i++;
+                        $pid = $products->pid;
+                        $p_brand = $obj->find('products','id',$pid);
+                        ?>
+                        <tr style="transition: all 0.3s ease;">
+                          <td style="vertical-align: middle; text-align: center"><?=$i?></td>
+                          <td style="vertical-align: middle;"><?=$products->product_name?></td>
+                          <td style="vertical-align: middle;"><?=$p_brand->brand_name?></td>
+                          <td style="vertical-align: middle; text-align: center">
+                            <span class="badge badge-info" style="padding: 8px 12px;">
+                              <?=$products->quantity?>
+                            </span>
+                          </td>
+                          <td style="vertical-align: middle; text-align: right">
+                            $<?=number_format($products->price / $products->quantity, 2)?>
+                          </td>
+                          <td style="vertical-align: middle; text-align: right; font-weight: bold; color: #2ecc71;">
+                            $<?=number_format($products->price, 2)?>
+                          </td>
+                        </tr>
+                        <?php 
+                      }
+                      ?>  
+                    </tbody>
+                  </table>
+                </div>
 
-                        <hr>
+                      <hr>
                       <div class="row">
                         <div class="col-md-8 col-lg-8">
-                         <div class="view_sell_payment_info">
-                            <h4 class="mt-4">Payments Information :</h4>
-                          <table class="table table-bordered text-center">
-                            <thead class="bg-info">
-                              <th>#</th>
-                              <th>Date</th>
-                              <th>Payment type</th>
-                              <th>Payment note</th>
-                              <th>Payment amount</th>
+                         <div class="view_sell_payment_info" style="background: #f8f9fa; padding: 20px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
+                          <h4 class="mt-0 mb-4" style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px;">
+                            <i class="fas fa-history"></i> Payment History
+                          </h4>
+                          <table class="table table-hover" style="background: white; border-radius: 5px;">
+                            <thead>
+                              <tr style="background: linear-gradient(45deg, #3498db, #2980b9);">
+                              <th style="color: white; padding: 15px;">#</th>
+                              <th style="color: white; padding: 15px;">Date</th>
+                              <th style="color: white; padding: 15px;">Payment Type</th>
+                              <th style="color: white; padding: 15px;">Payment Note</th>
+                              <th style="color: white; padding: 15px;">Amount</th>
+                              </tr>
                             </thead>
-                            <tbody>
+                          <tbody>
+                            <?php 
+                            $all_payment = $obj->findWhere('sell_payment','customer_id', $customer->id);
+                            $i=0;
+                            foreach ($all_payment as $payment) {
+                              $i++;
+                              ?>
+                              <tr>
+                                <td style="vertical-align: middle;"><?=$i;?></td>
+                                <td style="vertical-align: middle;"><?=$payment->payment_date;?></td>
+                                <td style="vertical-align: middle;">
+                                <span class="badge badge-info" style="padding: 8px 12px; font-size: 12px;">
+                                  <?=$payment->payment_type;?>
+                                </span>
+                                </td>
+                                <td style="vertical-align: middle;"><?=$payment->pay_description;?></td>
+                                <td style="vertical-align: middle; font-weight: bold; color: #2ecc71;">
+                                $<?=number_format($payment->payment_amount, 2);?>
+                                </td>
+                              </tr>
                               <?php 
-                                $all_payment = $obj->findWhere('sell_payment','customer_id', $customer->id);
-                                $i=0;
-                                foreach ($all_payment as $payment) {
-                                  $i++;
-                                  ?>
-                                    <tr>
-                                      <th><?=$i;?></th>
-                                      <th><?=$payment->payment_date;?></th>
-                                      <th><?=$payment->payment_type;?></th>
-                                      <th><?=$payment->pay_description;?></th>
-                                      <th><?=$payment->payment_amount;?></th>
-                                    </tr>
-                                  <?php 
-                                }
-                               ?>
-                            </tbody>
+                            }
+                             ?>
+                          </tbody>
                           </table>
                          </div>
                         </div>
                         <div class="col-md-4 col-lg-4">
-                          <div class="pruchase-view-description">
+                          <div class="pruchase-view-description mt-0" style="border: 2px solid #ddd; border-radius: 5px; padding: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+                          <h4 class="mb-3" style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px;">
+                            <i class="fas fa-money-bill-wave"></i> Payment Summary
+                          </h4>
                             <table class="table">
-                            <tr>
-                              <td>Sub Total</td>
-                              <td>:</td>
-                              <td><?=$sell_total->sub_total;?></td>
-                            </tr>
-                            <tr>
-                              <td>Previous Balance</td>
-                              <td>:</td>
-                              <td><?=$sell_total->pre_cus_due;?></td>
-                            </tr>
-                            <tr>
-                              <td>Net Total</td>
-                              <td>:</td>
-                              <td><?=$sell_total->net_total;?></td>
-                            </tr>
-                            <tr>
-                              <td>Paid Amount</td>
-                              <td>:</td>
-                              <td><?=$sell_total->paid_amount;?></td>
-                            </tr>
-                            <tr>
-                              <td>Remaining Balance</td>
-                              <td>:</td>
-                              <td><?=$sell_total->due_amount;?></td>
-                            </tr>
-                          </table>
+                              <tr>
+                                <td>Sub Total</td>
+                                <td>:</td>
+                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px"><?=$sell_total->sub_total;?></td>
+                              </tr>
+                              <tr>
+                                <td>Previous Balance</td>
+                                <td>:</td>
+                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px"><?=$sell_total->pre_cus_due;?></td>
+                              </tr>
+                              <tr>
+                                <td>Net Total</td>
+                                <td>:</td>
+                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px"><?=$sell_total->net_total;?></td>
+                              </tr>
+                              <tr>
+                                <td>Paid Amount</td>
+                                <td>:</td>
+                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px"><?=$sell_total->paid_amount;?></td>
+                              </tr>
+                              <tr>
+                                <td>Remaining Balance</td>
+                                <td>:</td>
+                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px"><?=$sell_total->due_amount;?></td>
+                              </tr>
+                            </table>
                           </div>
                         </div>
                       </div>
