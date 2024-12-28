@@ -128,10 +128,10 @@ footer.main-footer {
                             </span>
                           </td>
                           <td style="vertical-align: middle; text-align: right">
-                            $<?=number_format($products->price / $products->quantity, 2)?>
+                          ₱<?=number_format($products->price / $products->quantity, 2)?>
                           </td>
                           <td style="vertical-align: middle; text-align: right; font-weight: bold; color: #2ecc71;">
-                            $<?=number_format($products->price, 2)?>
+                          ₱<?=number_format($products->price, 2)?>
                           </td>
                         </tr>
                         <?php 
@@ -175,7 +175,7 @@ footer.main-footer {
                                 </td>
                                 <td style="vertical-align: middle;"><?=$payment->pay_description;?></td>
                                 <td style="vertical-align: middle; font-weight: bold; color: #2ecc71;">
-                                $<?=number_format($payment->payment_amount, 2);?>
+                                ₱<?=number_format($payment->payment_amount, 2);?>
                                 </td>
                               </tr>
                               <?php 
@@ -194,27 +194,27 @@ footer.main-footer {
                               <tr>
                                 <td>Sub Total</td>
                                 <td>:</td>
-                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px"><?=$sell_total->sub_total;?></td>
+                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px">₱<?=$sell_total->sub_total;?></td>
                               </tr>
                               <tr>
                                 <td>Previous Balance</td>
                                 <td>:</td>
-                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px"><?=$sell_total->pre_cus_due;?></td>
+                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px">₱<?=$sell_total->pre_cus_due;?></td>
                               </tr>
                               <tr>
                                 <td>Net Total</td>
                                 <td>:</td>
-                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px"><?=$sell_total->net_total;?></td>
+                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px">₱<?=$sell_total->net_total;?></td>
                               </tr>
                               <tr>
                                 <td>Paid Amount</td>
                                 <td>:</td>
-                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px"><?=$sell_total->paid_amount;?></td>
+                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px">₱<?=$sell_total->paid_amount;?></td>
                               </tr>
                               <tr>
                                 <td>Remaining Balance</td>
                                 <td>:</td>
-                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px"><?=$sell_total->due_amount;?></td>
+                                <td style="color:rgb(0, 88, 183); text-align: right; font-weight: bold; padding-right: 10px">₱<?=$sell_total->due_amount;?></td>
                               </tr>
                             </table>
                           </div>
