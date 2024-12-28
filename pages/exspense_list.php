@@ -28,11 +28,23 @@
             <div class="info-box-content">
               <span class="info-box-text">Total Materials Expense</span>
               <span class="info-box-number">
-                <?php 
-                  $stmt = $pdo->prepare("SELECT SUM(`amount`) FROM `expense`");
-                  $stmt->execute();
-                  $res = $stmt->fetch(PDO::FETCH_NUM);
-                  echo number_format($res[0], 2); // Format as currency
+                <?php
+                // Get total expenses
+                $stmt = $pdo->prepare("SELECT 
+                COUNT(*) as total_entries,
+                SUM(`amount`) as total_amount,
+                AVG(`amount`) as avg_amount,
+                MAX(`amount`) as highest_expense
+                FROM `expense`");
+                $stmt->execute();
+                $res = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                echo '<span class="h4">₱ ' . number_format($res['total_amount'], 2) . '</span>';
+                echo '<div class="text-sm mt-2">';
+                echo '<div>Number of Expenses: ' . $res['total_entries'] . '</div>';
+                echo '<div>Average Expense: ₱ ' . number_format($res['avg_amount'], 2) . '</div>';
+                echo '<div>Highest Expense: ₱ ' . number_format($res['highest_expense'], 2) . '</div>';
+                echo '</div>';
                 ?>
               </span>
             </div>
@@ -42,11 +54,17 @@
 
       <!-- Expense Materials List -->
       <div class="card mt-3">
-        <div class="card-header">
-          <h3 class="card-title"><b>All Expense Materials</b></h3>
-          <a href="index.php?page=add_expense" class="btn btn-primary btn-sm float-right rounded-0">
-            <i class="fas fa-plus"></i> Add Expense Materials
-          </a>
+        <div class="card-header bg-light py-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <h3 class="card-title m-0">
+              <i class="fas fa-list-alt mr-2"></i>
+              <span class="font-weight-bold">All Expense Materials</span>
+            </h3>
+            <a href="index.php?page=add_expense" class="btn btn-primary rounded-pill px-4">
+              <i class="fas fa-plus mr-1"></i>
+              Add Expense Materials
+            </a>
+          </div>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -63,7 +81,7 @@
                 </tr>
               </thead>
               <tbody>
-               
+
               </tbody>
             </table>
           </div>
