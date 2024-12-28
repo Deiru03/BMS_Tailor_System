@@ -22,10 +22,23 @@
               <!-- .row -->
                <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title"><b>Add a new product</b></h3>
-
-                     <button type="button" class="btn btn-primary btn-sm float-right rounded-0" data-toggle="modal" data-target=".catagoryModal"><i class="fas fa-plus"></i> catagory</button>
-                  </div>
+                    
+                      <div class="d-flex align-items-center justify-content-between">
+                        <h3 class="card-title mb-0" style="font-size: 1.25rem; color: #2c3e50;"><b>Add a new product</b></h3>
+                        <button type="button" class="btn btn-primary float-right rounded-pill shadow-sm" 
+                          style="transition: all 0.3s ease;
+                          background: linear-gradient(to right, #4e73df, #224abe);
+                          border: none;
+                          font-size: 16px;
+                          padding: 10px 24px;"
+                          onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
+                          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
+                          data-toggle="modal" 
+                          data-target=".catagoryModal">
+                          <i class="fas fa-plus"></i> Add New Category
+                        </button>
+                      </div>
+                    </div>
                   <div class="card-body">
                      <div class="alert alert-primary alert-dismissible fade show addProductError-area" role="alert">
                         <span id="addProductError"></span>
@@ -77,24 +90,24 @@
                             </select>
                            </div>
                          </div>
-                       </div>
-<div class="row">
+                      </div>
+                        <div class="row">
                           <div class="col-md-6">
                              <div class="form-group">
-                            <label for="sku">SKU :</label>
+                            <label for="sku">SKU <span style="color: #444;">(Stock Keeping Unit)</span> :</label>
                             <input type="text" class="form-control" id="sku" placeholder="product SKU" name="sku">
                            </div>
                          </div>
-                      <div class="col-md-4 col-lg-4">
-                            <div class="form-group">
-                            <label for="quantity">Quantity :</label>
-                            <input type="number" class="form-control" id="quantity" placeholder="product quantity" name="quantity">
-                          </div>
-                         </div> 
+                        <div class="col-md-4 col-lg-4">
+                          <div class="form-group">
+                          <label for="quantity">Product Stock Quantity :</label>
+                          <input type="number" class="form-control" id="quantity" placeholder="product quantity" name="quantity">
+                        </div>
+                      </div> 
                           <div class="col-md-6">
                             <div class="form-group">
-                            <label for="alert_quantity">Stocks level * :</label>
-                            <input type="number" class="form-control" id="alert_quantity" placeholder="stock level" name="alert_quantity">
+                            <label for="alert_quantity">Stock Alert Threshold* <span style="color: #dc3545;">(System will notify when inventory falls below this level)</span>:</label>
+                            <input type="number" class="form-control" id="alert_quantity" placeholder="Enter threshold value" name="alert_quantity">
                           </div>
                          </div>
                          </div>
@@ -112,9 +125,31 @@
                          </div> -->
                         
                            <div class="row text-center  buttons">
-                            <div class="col-md-6 offset-md-3 col-lg-6 offset-lg-3">
-                              <input type="reset" title="Reset form" class="btn btn-danger pl-5 pr-5 rounded-0">
-                              <button type="submit" title="Save data" class="btn btn-primary pl-5 pr-5  rounded-0">Submit</button>
+                            <div class="col-md-6 offset-md-3 col-lg-6 offset-lg-3 mt-4">
+                              <button type="reset" class="btn btn-danger px-4 me-3 rounded-pill shadow-sm" 
+                                  style="transition: all 0.3s ease;
+                                  background: linear-gradient(to right, #dc3545, #c82333);
+                                  border: none;
+                                  font-size: 16px;
+                                  padding: 10px 30px;
+                                  width: 200px;
+                                  height: 45px;"
+                                  onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(220, 53, 69, 0.3)';"
+                                  onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';">
+                                  <i class="fas fa-undo-alt"></i> Reset Form
+                              </button>
+                              <button type="submit" class="btn btn-primary px-4 rounded-pill shadow-sm" 
+                                  style="transition: all 0.3s ease;
+                                  background: linear-gradient(to right, #4e73df, #224abe);
+                                  border: none;
+                                  font-size: 16px;
+                                  padding: 10px 30px;
+                                  width: 200px;
+                                  height: 45px;"
+                                  onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
+                                  onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';">
+                                  <i class="fas fa-save"></i> Add This Product
+                              </button>
                             </div>
                           </div>
                         </form>
