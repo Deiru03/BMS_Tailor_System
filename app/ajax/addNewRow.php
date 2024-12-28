@@ -5,7 +5,7 @@ require_once '../init.php';
 			<tr>
 				<td><b class="si_number">1</b></td>
                       <td><select class="form-control form-control-sm select2 pid" id="product_name" name="pid[]">
-                        <option selected disabled>Select a prduct</option>
+                        <option selected disabled>Select a product</option>
                         <?php 
                           $all_produdct_data = $obj->all('products');
                           foreach ($all_produdct_data as $produdct_data) {
@@ -15,8 +15,8 @@ require_once '../init.php';
                           }
                          ?>
                       </select></td>
-                      <td><input type="text" class="form-control form-control-sm qaty" placeholder="Total Quantity" name="total_quantity[]" id="totalQuantity" readonly></td>
-                      <td><input type="number" class="form-control form-control-sm price" placeholder="Price" name="price[]" id="price"></td>
+                      <td><input type="text" class="form-control form-control-sm qaty" placeholder="Current Stock" name="total_quantity[]" id="totalQuantity" readonly></td>
+                      <td><input type="number" class="form-control form-control-sm price" placeholder="Per Item Price" name="price[]" id="price"></td>
                       <td><input type="number" class="form-control form-control-sm oqty" placeholder="Order Quantity" name="orderQuantity[]"></td>
                       <td><input type="number" class="form-control form-control-sm tprice" placeholder="Total Price" name="totalPrice[]" id="totalPrice" readonly></td>
                       <td><input type="text" readonly class="form-control form-control-sm pro_name" name="pro_name[]" id="pro_name"></td>

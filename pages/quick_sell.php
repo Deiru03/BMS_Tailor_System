@@ -23,10 +23,21 @@
 
               <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"><b>Make a sales here</b></h3>
-
-                            <button type="button" class="btn btn-primary btn-sm float-right rounded-0" data-toggle="modal" data-target=".myModal"><i class="fas fa-plus"></i> customer</button>
-                          
+                  <div class="d-flex align-items-center justify-content-between">
+                  <h3 class="card-title mb-0" style="font-size: 1.25rem; color: #2c3e50;"><b>Make a sales here</b></h3>
+                  <button type="button" class="btn btn-primary float-right rounded-pill shadow-sm" 
+                    style="transition: all 0.3s ease;
+                    background: linear-gradient(to right, #4e73df, #224abe);
+                    border: none;
+                    font-size: 16px;
+                    padding: 10px 24px;"
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
+                    data-toggle="modal" 
+                    data-target=".myModal">
+                    <i class="fas fa-plus"></i> Add New Customer
+                  </button>
+                  </div>
                 </div>
                 <div class="card-body">
 
@@ -34,48 +45,72 @@
                     <div class="order-header">
                    <div class="row">
                      <div class="col-md-6  d-flex justify-content-start">
-                            <div class="form-group" style="width: 80%;">
-                      <label for="customer-name">Customer name</label>
-                      <select name="customer_name" id="customer_name" class="form-control select2">
-                        <option selected disabled>Select a customer</option>
-                        <?php 
-                          $all_customer = $obj->all('member');
+                        <div class="form-group" style="width: 80%;">
+                          <label for="customer-name">Customer Name</label>
+                            <select name="customer_name" id="customer_name" class="form-control select2">
+                              <option selected disabled>Select a customer</option>
+                              <?php 
+                                $all_customer = $obj->all('member');
 
-                          foreach ($all_customer as $customer) {
-                            ?>
-                              <option value="<?=$customer->id;?>"><?=$customer->name;?></option>
-                            <?php 
-                          }
-                         ?>
-                      </select>
+                                foreach ($all_customer as $customer) {
+                                  ?>
+                                    <option value="<?=$customer->id;?>"><?=$customer->name;?></option>
+                                  <?php 
+                                }
+                              ?>
+                            </select>
+                        </div> 
+                      <div class="d-flex align-items-center justify-content-end mt-3">
+                        <!-- <button type="button" class="btn btn-primary rounded-pill shadow-sm" 
+                          style="transition: all 0.3s ease;
+                          background: linear-gradient(to right, #4e73df, #224abe);
+                          border: none;
+                          font-size: 14px;
+                          padding: 8px 20px;"
+                          onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
+                          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
+                          data-toggle="modal" 
+                          data-target=".myModal">
+                          <i class="fas fa-plus"></i> Add Customer
+                        </button> -->
+                      </div>
+                      </div>
+
+                      <div class="col-md-6 col-lg-6">
+                        <label for="orderdate">Order Date</label>
+                        <input type="text" class="form-control datepicker" name="orderdate" id="orderdate" autocomplete="off">
+                      </div>
                     </div>
-                          
-                        </div>
-                     <div class="col-md-6 col-lg-6">
-                      <label for="orderdate">Order date</label>
-                       <input type="text" class="form-control datepicker" name="orderdate" id="orderdate" autocomplete="off">
-                     </div>
-                   </div>
                   </div>
                  <div class="card p-4" style="background: #f1eaea40">
                     <table>
                       <thead>
                         <th>#</th>
                         <th>Product</th>
-                        <th>Total quantity</th>
-                        <th>Price</th>
-                        <th>order quantity</th>
+                        <th>Current Stock</th>
+                        <th>Item Price</th>
+                        <th>Order Quantity</th>
                         <th>Total Price</th>
-                        <th>Product name</th>
+                        <th>Product Name</th>
                         <th>Action</th>
                       </thead>
                     <tbody id="invoiceItem">
                       <!-- invoice item will show here by ajax  -->
                     </tbody>
                   </table>
-                  <div class="form-group text-right mt-3">
-                    <button type="button" class="btn btn-primary pl-5 pr-5" id="addNewRowBtn">Add</button>
-                  </div>
+                    <div class="form-group text-right mt-3">
+                    <button type="button" class="btn btn-primary rounded-pill shadow-sm" 
+                      style="transition: all 0.3s ease;
+                      background: linear-gradient(to right, #4e73df, #224abe);
+                      border: none;
+                      font-size: 16px;
+                      padding: 10px 24px;"
+                      onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
+                      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
+                      id="addNewRowBtn">
+                      <i class="fas fa-cart-plus"></i> Add New Item to Cart
+                    </button>
+                    </div>
                  </div>
                  <div class="invoice-area card pt-3" style="background: #f1eaea40">
                   <div class="row">
@@ -83,7 +118,7 @@
                       <div class="form-group">
                         <div class="row">
                           <div class="col-md-3">
-                            <label for="subtotal">Sub Total</label>
+                            <label for="subtotal">Item Sub Total Amount</label>
                           </div> 
                           <div class="col-md-8">
                             <input type="number" class="form-control form-control-sm" name="subtotal" id="subtotal"></div>  
@@ -113,7 +148,7 @@
                       <div class="form-group">
                        <div class="row">
                          <div class="col-md-3">
-                           <label for="prev_due">Previous Balance</label>
+                           <label for="prev_due">Previous Balance Amount</label>
                          </div>
                          <div class="col-md-8">
                           <input type="number" class="form-control form-control-sm" name="prev_due" id="prev_due">
@@ -133,7 +168,7 @@
                       <div class="form-group">
                         <div class="row">
                           <div class="col-md-3">
-                            <label for="paidBill">Payment</label>
+                            <label for="paidBill">Payment Amount</label>
                           </div>
                           <div class="col-md-8">
                          <input type="number" class="form-control form-control-sm" name="paidBill" id="paidBill">
@@ -143,7 +178,7 @@
                       <div class="form-group">
                        <div class="row">
                          <div class="col-md-3">
-                           <label for="dueBill">Balance</label>
+                           <label for="dueBill">Balance Amount</label>
                          </div>
                          <div class="col-md-8">
                            <input type="text" class="form-control form-control-sm" name="dueBill" id="dueBill">
@@ -171,8 +206,18 @@
                        </div>
                      </div>
                      <div class="form-group text-center">
-                       <button type="submit" class="btn btn-success btn-block" id="sellBtn">Make sell</button>
-
+                       <button type="submit" class="btn btn-success btn-lg rounded-pill shadow-sm" 
+                       style="transition: all 0.3s ease;
+                       background: linear-gradient(to right, #28a745, #20c997);
+                       border: none;
+                       font-size: 16px;
+                       padding: 12px 30px;
+                       width: 100%;"
+                       onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(40, 167, 69, 0.3)';"
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
+                       id="sellBtn">
+                       <i class="fas fa-check-circle mr-2"></i> Complete Sale
+                       </button>
                      </div>
                     </div>
                   </div>
