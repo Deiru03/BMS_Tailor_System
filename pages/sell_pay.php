@@ -1,117 +1,104 @@
-<!-- Content Wrapper. Contains page content  -->
+<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid mt-5">
       <div class="row">
-        <div class="col-md-6">
-          <!-- <h1 class="m-0 text-dark">Sell report</h1> -->
-          </div><!-- /.col -->
-          <div class="col-md-6 mt-3">
-            <!-- <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Catagory</li>
-            </ol> -->
-            </div><!-- /.col -->
-            </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-          </div>
-          <!-- /.content-header -->
-          <!-- Main content -->
-          <section class="content">
-            <div class="container-fluid">
-              <!-- /.card-header -->
-               <div class="row">
-                 <?php 
+        <div class="col-md-12">
+          <h2 class="text-center mb-4">Payment Processing</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <?php 
         if (isset($_GET['id']) && $_GET['id'] != '') {
-           $edit_id = $_GET['id'];
-           $data = $obj->find('member' , 'id' , $edit_id);
+          $edit_id = $_GET['id'];
+          $data = $obj->find('member', 'id', $edit_id);
 
-            if ($data) {
-              ?>
-                 <div class="col-md-12  mt-3">
-                  <div class="card">
-                    <div class="card-header">
-                      <h3 class="text-center">Sell Payments</h3>
+          if ($data) {
+        ?>
+          <div class="col-md-12">
+            <!-- Customer Info Card -->
+            <div class="card shadow-sm mb-4">
+              <div class="card-header bg-primary text-white">
+                <h3 class="text-center m-0">Sell Payments</h3>
+              </div>
+              <div class="card-body bg-light">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="p-3 border rounded bg-white">
+                      <h4 class="text-primary mb-3"><i class="fas fa-user mr-2"></i>Customer Information</h4>
+                      <div class="ml-3">
+                        <p class="mb-2"><strong>Name:</strong> <?=$data->name;?></p>
+                        <p class="mb-2"><strong>Company:</strong> <?=$data->company;?></p>
+                        <p class="mb-2"><strong>Address:</strong> <?=$data->address;?></p>
+                        <p class="mb-2"><strong>Contact:</strong> <?=$data->con_num;?></p>
+                        <p class="mb-2"><strong>Email:</strong> <?=$data->email;?></p>
+                      </div>
                     </div>
-                    <div class="card-body">
-                     <div class="row">
-                       <div class="col-md-6 col-lg-6">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Payment Form Card -->
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <form id="sell_payForm" class="p-3">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="payment_date" class="font-weight-bold">Payment Date</label>
+                        <input type="text" hidden name="customer_id" value="<?=$data->id;?>">
+                        <input type="text" class="form-control datepicker" id="payment_date" name="payment_date" placeholder="Select date" autocomplete="off">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="spay_amount" class="font-weight-bold">Amount</label>
+                        <input type="number" class="form-control" id="spay_amount" name="pay_amount" value="<?=$data->total_due;?>">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="spay_type" class="font-weight-bold">Payment Type</label>
+                        <select name="pay_type" id="spay_type" class="form-control">
                           <?php 
-                        
+                          $all_pay_type = $obj->all('paymethode');
+                          foreach ($all_pay_type as $paymethode) {
                           ?>
-                            <p class="m-0 p-0"><b><i>Supplier info : </i></b></p>
-                            <p class="m-0 p-0">Name:<?=$data->name;?></p>
-                            <p class="m-0 p-0">Name:<?=$data->company;?></p>
-                            <p class="m-0 p-0">Name:<?=$data->address;?></p>
-                            <p class="m-0 p-0">Name:<?=$data->con_num;?></p>
-                            <p class="m-0 p-0">Name:<?=$data->email;?></p>
-                        
-                       </div>
-                     </div>
+                            <option value="<?=$paymethode->name?>"><?=$paymethode->name?></option>
+                          <?php 
+                          }
+                          ?>
+                        </select>
+                      </div>
                     </div>
                   </div>
-                   <div class="card">
-                     <div class="card-body">
-     
-                <form id="sell_payForm">
-                          <div class="row">
-                            <div class="col-md-4">
-                            <div class="form-group">
-                            <label for="payment_date">date </label>
-                            <input type="text" hidden name="customer_id" value="<?=$data->id;?>">
-                            <input type="text" class="form-control datepicker" id="payment_date" name="payment_date" placeholder="Please select a date" autocomplete="off">
-                          </div>
-                            </div>
-                            <div class="col-md-4">
-                           <div class="form-group">
-                              <label for="spay_amount">Amount</label>
-                            <input type="number" class="form-control" id="spay_amount" name="pay_amount" value="<?=$data->total_due;?>">
-                           </div>
-                            </div>
-                            <div class="col-md-4">
-                           <div class="form-group">
-                              <label for="spay_type">payment type</label>
-                              <select name="pay_type" id="spay_type" class="form-control">
-                                <?php 
-                                  $all_pay_type = $obj->all('paymethode');
-                                  foreach ($all_pay_type as $paymethode) {
-                                    ?>
-                                      <option value="<?=$paymethode->name?>"><?=$paymethode->name?></option>
-                                    <?php 
-                                  }
-                                 ?>
-                              </select>
-                           </div>
-                            </div>
-                          </div>
-                           <div class="form-group">
-                            <label for="pay_descrip">Description </label>
-                            <textarea  rows="3" class="form-control" id="pay_descrip" name="pay_descrip"></textarea>
-                          </div>
-                          <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block mt-4 rounded-0">Pay now</button>
-                          </div>
-                        </form>
-
-        
-         </div>
+                  <div class="form-group">
+                    <label for="pay_descrip" class="font-weight-bold">Description</label>
+                    <textarea rows="3" class="form-control" id="pay_descrip" name="pay_descrip" placeholder="Enter payment details..."></textarea>
                   </div>
-                 </div>
-                       <?php 
-            }else{
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block mt-4">Process Payment</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        <?php 
+          } else {
+            header("location:index.php?page=member");
+          }
+        } else {
           header("location:index.php?page=member");
         }
-      }else{
-        header("location:index.php?page=member");
-      }
-       ?>
-               </div>
-            </div>
-            <!-- /.card-body -->
-            <!-- /.row -->
-            </div><!--/. container-fluid -->
-          </section>
-          <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper
+        ?>
+      </div>
+    </div>
+  </section>
+</div>
