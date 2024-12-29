@@ -101,7 +101,8 @@ $actual_link = explode('=', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
           'sales_report' => 'Sales Report',
           'return_sell' => 'Return Sell',
           'sell_pay' => 'Sell Payments',
-          'view_sell' => 'View Sales Information'
+          'view_sell' => 'View Sales Information',
+          'edit_sell' => 'Edit Sales Information'
       ];
 
       $header_name = isset($page_headers[$current_page]) ? $page_headers[$current_page] : ucfirst($current_page);

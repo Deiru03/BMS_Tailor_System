@@ -67,8 +67,8 @@
                           <tr>
                             <th>#</th>
                             <th>Product</th>
-                            <th>Previous Order Qty</th>
-                            <th>Price</th>
+                            <th>Previous Stock</th>
+                            <th>Item Price</th>
                             <th>Order Quantity</th>
                             <th>Total Price</th>
                             <th>Product Name</th>
@@ -111,9 +111,19 @@
                           ?>
                         </tbody>
                       </table>
-                      <div class="form-group text-right mt-3">
-                        <button type="button" class="btn btn-primary pl-5 pr-5" id="EditaddNewRowBtn">Add</button>
-                      </div>
+                        <div class="form-group text-right mt-3">
+                        <button type="button" class="btn btn-primary rounded-pill shadow-sm"
+                          style="transition: all 0.3s ease;
+                          background: linear-gradient(to right, #4e73df, #224abe);
+                          border: none;
+                          font-size: 16px;
+                          padding: 10px 24px;"
+                          onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
+                          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
+                          id="EditaddNewRowBtn">
+                          <i class="fas fa-cart-plus"></i> Add New Item
+                        </button>
+                        </div>
                     </div>
                     <div class="invoice-area card pt-3" style="background: #f1eaea40">
                       <div class="row">
@@ -152,7 +162,7 @@
                           <div class="form-group">
                             <div class="row">
                               <div class="col-md-3">
-                                <label for="prev_due">previous total due</label>
+                                <label for="prev_due">Previous Balance Amount</label>
                               </div>
                               <div class="col-md-8">
                                 <input type="number" class="form-control form-control-sm" name="prev_due" id="prev_due" value="<?= $sell_data->pre_cus_due; ?>">
@@ -162,7 +172,7 @@
                           <div class="form-group">
                             <div class="row">
                               <div class="col-md-3">
-                                <label for="netTotal">Net Total</label>
+                                <label for="netTotal">Net Total Amount</label>
                               </div>
                               <div class="col-md-8">
                                 <input type="number" class="form-control form-control-sm" name="netTotal" id="netTotal" value="<?= $sell_data->net_total; ?>">
@@ -172,7 +182,7 @@
                           <div class="form-group">
                             <div class="row">
                               <div class="col-md-3">
-                                <label for="paidBill">Paid bill</label>
+                                <label for="paidBill">Payment Amount</label>
                               </div>
                               <div class="col-md-8">
                                 <input type="number" class="form-control form-control-sm" name="paidBill" id="paidBill">
@@ -182,7 +192,7 @@
                           <div class="form-group">
                             <div class="row">
                               <div class="col-md-3">
-                                <label for="dueBill">Due bill</label>
+                                <label for="dueBill">Balance Amount</label>
                               </div>
                               <div class="col-md-8">
                                 <input type="text" class="form-control form-control-sm" name="dueBill" id="dueBill">
@@ -193,7 +203,7 @@
                           <div class="form-group">
                             <div class="row">
                               <div class="col-md-3">
-                                <label for="payMethode">Payment Methode</label>
+                                <label for="payMethode">Payment Method</label>
                               </div>
                               <div class="col-md-8">
                                 <select name="payMethode" id="payMethode" class="form-control form-control-sm select2">
@@ -209,9 +219,20 @@
                               </div>
                             </div>
                           </div>
-                          <div class="form-group text-center">
-                            <button type="submit" class="btn btn-success btn-block" id="editSellBtn">Edit sell</button>
-                          </div>
+                            <div class="form-group text-center">
+                            <button type="submit" class="btn btn-success btn-lg rounded-pill shadow-sm"
+                              style="transition: all 0.3s ease;
+                              background: linear-gradient(to right,rgb(40, 85, 167),rgb(32, 162, 201));
+                              border: none;
+                              font-size: 20px;
+                              padding: 12px 15px;
+                              width: 50%;"
+                              onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(40, 167, 69, 0.3)';"
+                              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
+                              id="editSellBtn">
+                              <i class="fas fa-check-circle mr-2"></i> Confirm Edit Sales
+                            </button>
+                            </div>
                         </div>
                       </div>
                     </div>
