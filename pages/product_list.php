@@ -39,6 +39,75 @@
           </div>
         </div>
 
+        <div class="row mb-2" style="margin: 20px;">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box bg-primary mb-3">
+              <div class="info-box-content">
+                <span class="info-box-text">Total Products</span>
+                <span class="info-box-number">
+                  <?php
+                  $stmt = $pdo->prepare("SELECT COUNT(*) FROM products");
+                  $stmt->execute();
+                  $res = $stmt->fetch(PDO::FETCH_NUM);
+                  echo $res[0];
+                  ?>
+                </span>
+              </div>
+              <span class="info-box-icon"><i class="fas fa-box"></i></span>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box bg-success mb-3">
+              <div class="info-box-content">
+                <span class="info-box-text">In Stock Products</span>
+                <span class="info-box-number">
+                  <?php
+                  $stmt = $pdo->prepare("SELECT COUNT(*) FROM products WHERE quantity > 0");
+                  $stmt->execute();
+                  $res = $stmt->fetch(PDO::FETCH_NUM);
+                  echo $res[0];
+                  ?>
+                </span>
+              </div>
+              <span class="info-box-icon"><i class="fas fa-check-circle"></i></span>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3" style="background-color: #ffc107;">
+              <div class="info-box-content">
+                <span class="info-box-text" style="color: #000;">Low Stock Alert</span>
+                <span class="info-box-number" style="color: #000;">
+                  <?php
+                  $stmt = $pdo->prepare("SELECT COUNT(*) FROM products WHERE quantity <= alert_quanttity");
+                  $stmt->execute();
+                  $res = $stmt->fetch(PDO::FETCH_NUM);
+                  echo $res[0];
+                  ?>
+                </span>
+              </div>
+              <span class="info-box-icon" style="color: #000;"><i class="fas fa-exclamation-triangle"></i></span>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box bg-danger mb-3">
+              <div class="info-box-content">
+                <span class="info-box-text">Out of Stock</span>
+                <span class="info-box-number">
+                  <?php
+                  $stmt = $pdo->prepare("SELECT COUNT(*) FROM products WHERE quantity = 0");
+                  $stmt->execute();
+                  $res = $stmt->fetch(PDO::FETCH_NUM);
+                  echo $res[0];
+                  ?>
+                </span>
+              </div>
+              <span class="info-box-icon"><i class="fas fa-times-circle"></i></span>
+            </div>
+          </div>
+        </div>
         <!-- /.card-header -->
         <div class="card-body">
           <div class="table-responsive">
