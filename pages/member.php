@@ -28,7 +28,7 @@
             <div class="col-12 col-sm-6 col-md-4">
               <div class="info-box bg-danger mb-3">
                 <div class="info-box-content">
-                  <span class="info-box-text">Total transaction</span>
+                  <span class="info-box-text">Total Transaction </span>
                   <span class="info-box-number">
                     <?php
                     $stmt = $pdo->prepare("SELECT SUM(`total_buy`) FROM `member`");
@@ -49,7 +49,7 @@
             <div class="col-12 col-sm-6 col-md-4">
               <div class="info-box bg-success mb-3">
                 <div class="info-box-content">
-                  <span class="info-box-text">Total paid</span>
+                  <span class="info-box-text">Total Amount Paid</span>
                   <span class="info-box-number">
                     <?php
                     $stmt = $pdo->prepare("SELECT SUM(`total_paid`) FROM `member`");
@@ -70,7 +70,7 @@
             <div class="col-12 col-sm-6 col-md-4">
               <div class="info-box bg-info mb-3">
                 <div class="info-box-content">
-                  <span class="info-box-text">Total due</span>
+                  <span class="info-box-text">Total Balance</span>
                   <span class="info-box-number">
                     <?php
                     $stmt = $pdo->prepare("SELECT SUM(`total_due`) FROM `member`");
@@ -97,7 +97,7 @@
         <div class="card-header bg-light border-bottom">
           <div class="d-flex align-items-center justify-content-between">
             <h3 class="card-title mb-0" style="font-size: 1.25rem; color: #2c3e50;"><b>All Customer info</b></h3>
-            <button type="button" class="btn btn-primary float-right rounded-pill shadow-sm"
+            <!-- <button type="button" class="btn btn-primary float-right rounded-pill shadow-sm"
               style="transition: all 0.3s ease;
                           background: linear-gradient(to right, #4e73df, #224abe);
                           border: none;
@@ -108,7 +108,7 @@
               data-toggle="modal"
               data-target=".myModal">
               <i class="fas fa-plus"></i> Add New Customer
-            </button>
+            </button> -->
           </div>
         </div>
         <!-- /.card-header -->
@@ -122,9 +122,9 @@
                   <th>Company</th>
                   <th>Address</th>
                   <th>Contact</th>
-                  <th>total buy</th>
-                  <th>total paid</th>
-                  <th>total due</th>
+                    <th>Purchase Amount</th>
+                    <th>Amount Paid</th>
+                    <th>Balance / Change</th>
                   <th>action</th>
                 </tr>
               </thead>

@@ -61,7 +61,9 @@ foreach($empRecords as $row){
       "con_num"=>$row['con_num'],
       "total_buy"=>$row['total_buy'],
       "total_paid"=>$row['total_paid'],
-      "total_due"=>$row['total_due'],
+      "total_due"=>($row['total_due'] < 0 ? 
+          '<span style="color: green;">Change: '.number_format(abs($row['total_due']), 2).'</span>' : 
+          '<span style="color: red;">Balance: '.number_format($row['total_due'], 2).'</span>'),
       "action"=>'
           <div class="btn-group" >
          

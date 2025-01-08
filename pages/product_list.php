@@ -121,7 +121,7 @@
                   <!-- <th style="display: none;">Source</th> -->
                   <th>Current Stock</th>
                   <th>Stock Level <br> <small>(Alert Quantity)</small></th>
-                  <th>Selling Price</th>
+                  <th>Selling Price <br> <small>(Per Item)</small> </th>
                   <th>Action</th>
                 </tr>
               </thead>

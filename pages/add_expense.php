@@ -8,13 +8,33 @@
           <div class="card">
             <!-- Card Header -->
             <div class="card-header">
-              <h3 class="card-title"><b>Add Materials</b></h3>
-              <button 
-                type="button" 
-                class="btn btn-primary btn-sm float-right rounded-0" 
-                data-toggle="modal" 
+              <h3 class="card-title"><b>Add Material</b></h3>
+              <button type="button" class="btn btn-primary float-right rounded-pill shadow-sm"
+                style="transition: all 0.3s ease;
+                        background: linear-gradient(to right, #4e73df, #224abe);
+                        border: none;
+                        font-size: 16px;
+                        padding: 10px 24px;"
+                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
+                data-toggle="modal"
                 data-target=".expenseCatModal">
-                <i class="fas fa-plus"></i> Add Materials
+                <i class="fas fa-plus"></i> Add Material Category
+              </button>
+              <div class="mr-10">
+                
+              </div>
+               <button type="button" class="btn btn-primary float-right rounded-pill shadow-sm"
+                style="transition: all 0.3s ease;
+                        background: linear-gradient(to right, #4e73df, #224abe);
+                        border: none;
+                        font-size: 16px;
+                        padding: 10px 24px;"
+                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
+                data-toggle="modal"
+                data-target=".suppliarModal">
+                <i class="fas fa-plus"></i> Add New Supplier
               </button>
             </div>
 

@@ -216,13 +216,15 @@ function rle4_decode ($str, $width){
                         break;
                     default: # ABSOLUTE MODE
                         $num = ord($str[$i]);
-                        for ($j=0;$j<$num;$j++){
-                            if ($j%2==0){
-                                $c = ord($str[++$i]);
-                              $pixels[] = ($c & 240)>>4;
-                             } else
-                              $pixels[] = $c & 15;
-                        }
+						for ($j=0;$j<$num;$j++){
+							if ($j%2==0){
+								$c = ord($str[++$i]);
+								$pixels[] = ($c & 240)>>4;
+							} else {
+								$c = ord($str[++$i]);
+								$pixels[] = $c & 15;
+							}
+						}
                         if ($num % 2) $i++;
              }
                 break;
