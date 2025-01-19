@@ -58,9 +58,21 @@
                     <input type="email" class="form-control add-member rounded" id="email" name="email" value="<?=$data->email;?>">
                   </div>
                   
-                  <button type="submit" class="btn btn-primary btn-lg btn-block mt-4 rounded">
-                    Update Supplier
-                  </button>
+                  <button 
+                    type="submit" 
+                    class="btn btn-primary mt-4 rounded-pill shadow-sm"
+                    style="transition: all 0.3s ease;
+                      background: linear-gradient(to right, #4e73df, #224abe);
+                      border: none;
+                      font-size: 16px;
+                      padding: 12px 24px;
+                      width: 200px;
+                      text-align: center;"
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
+                    onclick="setTimeout(function() { window.location.href = 'index.php?page=suppliar'; }, 1000);">
+                    <i class="fas fa-plus-circle"></i> Save Changes
+                    </button>
                 </form>
               </div>
             <?php 
