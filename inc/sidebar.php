@@ -110,7 +110,8 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="index.php?page=sell_list" class="nav-link <?php echo $actual_link == 'sell_list' ? 'active' : ''; ?>">
+              <?php $isActive = in_array($actual_link, ['sell_list', 'sell_return_list', 'view_sell']); ?>
+              <a href="index.php?page=sell_list" class="nav-link <?php echo $isActive ? 'active' : ''; ?>">
                 <p>Sales Records</p>
               </a>
             </li>

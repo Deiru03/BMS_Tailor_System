@@ -1,7 +1,7 @@
 <style>
 
 @page {
-  margin-top:  150px;
+  margin-top:  0px;
   margin-bottom:   100px;
 }
 
@@ -24,7 +24,7 @@ footer.main-footer {
 }
 </style>
 <!-- Content Wrapper. Contains page content  -->
-<div class="content-wrapper">
+<div class="content-wrapper" style="margin-top: 100px;">
  <!-- Main content -->
   <section class="content mt-5">
     <div class="container-fluid">

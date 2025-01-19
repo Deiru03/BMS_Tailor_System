@@ -63,19 +63,18 @@ foreach($empRecords as $row){
       "total_paid"=>$row['total_paid'],
       "total_due"=>$row['total_due'],
       "action"=>'
-       <div class="btn-group">
+            <div class="btn-group">
       
-          <a href="index.php?page=suppliar_edit&&edit_id='.$row['id'].'" class="btn btn-secondary btn-sm rounded-0" type="button"><i class="fas fa-edit"></i></a>
-            
-             
-
-             <p id="suppliarDelete_btn" class="btn btn-danger btn-sm rounded-0 "  data-id="'.$row['id'].'"><i class="fas fa-trash-alt"></i></p>
-          </div>
+               <a href="index.php?page=suppliar_edit&&edit_id='.$row['id'].'" class="btn btn-secondary btn-sm rounded-0" type="button"><i class="fas fa-edit"></i></a>
+               <a href="index.php?page=supplier_info&&id='.$row['id'].'" class="btn btn-info btn-sm rounded-0" type="button"><i class="fas fa-info-circle"></i></a>
+               <p id="suppliarDelete_btn" class="btn btn-danger btn-sm rounded-0 "  data-id="'.$row['id'].'"><i class="fas fa-trash-alt"></i></p>
+            </div>
         </div>
       ',
    );
 }
-
+## 
+##<a href="index.php?page=supplier_materials&&id='.$row['id'].'" class="btn btn-info btn-sm rounded-0" type="button"><i class="fas fa-list-alt"></i></a>
 ## <a href="index.php?page=purchase_pay&&id='.$row['id'].'" class="btn btn-info btn-sm rounded-0" type="button"><i class="fa fa-credit-card"></i></a>
 ## Response
 $response = array(

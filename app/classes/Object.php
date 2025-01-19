@@ -256,7 +256,15 @@ public function storeCustomerOrderInvoice($invoice_number,$customer_name ,$order
 			return $invoice_no;
 		}
 
-}
+	}
+	
+	// new object added for get all data by value 
+	public function get_all_by_value($table, $column, $value) {
+		$stmt = $this->pdo->prepare("SELECT * FROM $table WHERE $column = :value");
+		$stmt->bindParam(':value', $value);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_OBJ);
+	}
 
 
 } //end of class

@@ -180,11 +180,16 @@ $("#editCatForm").submit(function (e) {
     e.preventDefault();
     var t = $("#addExpenseForm").serialize();
     $.ajax({
-      type: "POST",
+      type: "POST", 
       url: "app/action/add_expense.php",
       data: t,
       success: function (e) {
-        alert(e);
+        if($.trim(e) == "yes") {
+          alert("Expense added successfully");
+          window.location.href = "index.php?page=expense_list";
+        } else {
+          alert(e);
+        }
       },
     });
   }),

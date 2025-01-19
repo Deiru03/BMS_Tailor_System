@@ -1,17 +1,31 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Main Content -->
-  <section class="content mt-5">
+  <section class="content mt-4">
     <div class="container-fluid">
-      <div class="card-header">
-        <h3 class="card-title mt-3">Add Category</h3>
-      </div>
+      <div class="d-flex justify-content-between align-items-center mb-4"></div>
+        <div class="card-header bg-white border-0">
+          <h3 class="card-title mb-0" style="color: #4e73df; font-weight: 600;">
+            <i class="fas fa-edit mr-2"></i>Edit Expense Details
+          </h3>
+        </div>
 
-      <!-- Add Materials Button -->
-      <div class="col-lg-4 mb-3">
-        <div class="form-group text-right">
-          <button type="button" class="btn btn-primary rounded-0" data-toggle="modal" data-target=".expenseCatModal">
-            <i class="fas fa-plus"></i> Add Materials
+        <!-- Add Materials Button -->
+        <div class="d-flex justify-content-center" style="margin-top: 30px;">
+          <button 
+            type="button" 
+            class="btn btn-primary rounded-pill shadow-sm"
+            data-toggle="modal" 
+            data-target=".expenseCatModal"
+            style="
+              transition: all 0.3s ease;
+              background: linear-gradient(to right, #4e73df, #224abe);
+              border: none;
+              font-size: 15px;
+              padding: 10px 20px;"
+            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';">
+            <i class="fas fa-plus-circle mr-2"></i>Add Materials
           </button>
         </div>
       </div>
@@ -141,11 +155,22 @@
 
                 <!-- Submit Button -->
                 <div class="form-group">
-                  <button 
-                    type="submit" 
-                    class="btn btn-primary btn-block mt-4 rounded-0">
-                    Update
-                  </button>
+                <!-- Submit Button -->
+                <button 
+                  type="submit" 
+                  class="btn btn-primary mt-4 rounded-pill shadow-sm"
+                  style="transition: all 0.3s ease;
+                    background: linear-gradient(to right, #4e73df, #224abe);
+                    border: none;
+                    font-size: 16px;
+                    padding: 12px 24px;
+                    width: 200px;
+                    text-align: center;"
+                  onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(78, 115, 223, 0.3)';"
+                  onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.1)';"
+                  onclick="setTimeout(function() { window.location.href = 'index.php?page=exspense_list'; }, 1000);">
+                  <i class="fas fa-save"></i> Save Changes
+                </button>
                 </div>
               </form>
               <?php 

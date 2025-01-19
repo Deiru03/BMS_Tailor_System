@@ -6,7 +6,7 @@
 		$sup_company = $_POST['sup_company'];
 		$sup_contact = $_POST['sup_contact'];
 		$sup_email = $_POST['sup_email'];
-		$sup_open_blacnce = $_POST['sup_open_blacnce'];
+		// $sup_open_blacnce = $_POST['sup_open_blacnce'];
 		$sup_reg_date = $obj->convertDateMysql($_POST['sup_reg_date']);
 		$supaddress = $_POST['supaddress'];
 	    $suppliar_id = "S".time();
@@ -20,7 +20,7 @@
 				'address' => $supaddress,
 				'con_num' => $sup_contact,
 				'email' => $sup_email,
-				'total_due' => $sup_open_blacnce,
+				// 'total_due' => $sup_open_blacnce,
 				'reg_date' => $sup_reg_date,
 				'update_by' => $user
 			);
@@ -31,7 +31,7 @@
 			if ($res) {
 				$add_py_query = array(
 					'supliar_id' => $laset_id,
-					'due_blance' => $sup_open_blacnce,
+					// 'due_blance' => $sup_open_blacnce,
 				);
 				$res = $obj->create('suppliar_balance',$add_py_query);
 				echo "yes";

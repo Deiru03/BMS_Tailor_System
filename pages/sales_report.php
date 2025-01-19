@@ -89,6 +89,26 @@
 	</div>
 </div>
 </div>
+  <div>
+  <div class="text-center mt-4 mb-4">
+        <button type="button" 
+          onclick="window.print()" 
+          class="btn btn-lg" 
+          style="padding: 12px 30px; 
+          border-radius: 8px; 
+          transition: all 0.3s ease;
+          background: linear-gradient(135deg, #2c3e50, #3498db);
+          border: none;
+          color: white;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.2);"
+          onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,0,0,0.25)'" 
+          onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'">
+          <i class="fas fa-print mr-2"></i> Print Report
+        </button>
+      </div>
+  </div>
 </section>
 </div>
           <!-- .content-wrapper -->
