@@ -71,9 +71,10 @@
             <table id="expenseList" class="table table-hover table-striped text-center">
               <thead>
                 <tr>
-                  <th>SI</th>
+                  <th>ID</th>
                   <th>Expense Date</th>
                   <th>Expense For</th>
+                  <th>Supplier</th>
                   <th>Price</th>
                   <th>No. Materials</th>
                   <th>Quantity type</th>

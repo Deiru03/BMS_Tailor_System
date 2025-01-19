@@ -55,6 +55,7 @@ CREATE TABLE `expense` (
   `id` int(11) NOT NULL,
   `ex_date` date NOT NULL,
   `expense_for` varchar(50) NOT NULL,
+  `supplier` VARCHAR(50) Default NULL,
   `amount` float(15,2) NOT NULL DEFAULT 0.00,
   `expense_cat` int(10) NOT NULL,
   `ex_description` text NOT NULL,
@@ -66,8 +67,8 @@ CREATE TABLE `expense` (
 -- Dumping data for table `expense`
 --
 
-INSERT INTO `expense` (`id`, `ex_date`, `expense_for`, `amount`, `expense_cat`, `ex_description`, `added_by`, `added_date`) VALUES
-(1, '2023-07-19', 'Transport', 500.00, 1, 'order delivery', 1, '2023-07-21 12:35:30');
+INSERT INTO `expense` (`id`, `ex_date`, `expense_for`, `supplier`, `amount`, `expense_cat`, `ex_description`, `added_by`, `added_date`) VALUES
+(1, '2023-07-19', 'Transport', ,`Supplier Test`, 500.00, 1, 'order delivery', 1, '2023-07-21 12:35:30');
 
 -- --------------------------------------------------------
 

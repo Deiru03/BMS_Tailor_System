@@ -69,7 +69,6 @@ foreach($empRecords as $row){
          
           <a href="index.php?page=member_edit&&edit_id='.$row['id'].'" class="btn btn-secondary btn-sm rounded-0" id="memberEdit_btn" type="button"><i class="fas fa-edit"></i></a>
 
-            <a href="index.php?page=sell_pay&&id='.$row['id'].'"  class="btn btn-info btn-sm rounded-0" type="button"><i class="fa fa-credit-card"></i></a>
 
              <p id="memberDelete_btn"class="btn btn-danger btn-sm rounded-0 " data-id="'.$row['id'].'" > <i class="fas fa-trash-alt"></i></p>
           </div>
@@ -77,6 +76,8 @@ foreach($empRecords as $row){
       ',
    );
 }
+// <a href="index.php?page=sell_pay&&id='.$row['id'].'"  class="btn btn-info btn-sm rounded-0" type="button"><i class="fa fa-credit-card"></i></a>
+
 
 ## Response
 $response = array(

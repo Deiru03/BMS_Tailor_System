@@ -18,7 +18,8 @@ if($searchValue != ''){
    $searchQuery = " AND (id LIKE :id or 
         ex_date LIKE :ex_date OR 
         amount LIKE :amount OR 
-        expense_for LIKE :expense_for ) ";
+        expense_for LIKE :expense_for OR
+        supplier LIKE :supplier) ";
    $searchArray = array( 
         'id'=>"%$searchValue%", 
         'ex_date'=>"%$searchValue%",
@@ -59,6 +60,7 @@ foreach($empRecords as $row){
       "id"=>$row['id'],
       "ex_date"=>$row['ex_date'],
       "expense_for"=>$row['expense_for'],
+      "the_supplier"=>$row['supplier'],
       "amount"=>$row['amount'],
       "expense_cat"=>$row['expense_cat'],
       "ex_description"=>$row['ex_description'],

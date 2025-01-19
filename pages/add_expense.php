@@ -74,6 +74,22 @@
                     </div>
                   </div>
                 </div>
+                <!-- Row: Supplier and Input -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="supplier">Supplier</label>
+                      <select name="supplier" id="supplier" class="form-control select2">
+                        <?php 
+                          $all_suppliers = $obj->all('suppliar');
+                          foreach ($all_suppliers as $supplier) {
+                        ?>
+                        <option value="<?=$supplier->name?>"><?=$supplier->name;?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                  </div>
+                </div>
 
                 <!-- Row 2: Materials Category and Price -->
                 <div class="row">

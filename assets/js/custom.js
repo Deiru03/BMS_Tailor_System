@@ -230,6 +230,7 @@ $("#empTable").DataTable({
       { data: "id" },
       { data: "ex_date" },
       { data: "expense_for" },
+      { data: "the_supplier" },
       { data: "amount" },
       { data: "expense_cat" },
       { data: "ex_description" },

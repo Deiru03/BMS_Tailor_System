@@ -58,6 +58,42 @@
                   <input type="hidden" name="id" value="<?=$expense_data->id?>">
                 </div>
 
+                <!-- Supplier -->
+                <div class="form-group">
+                  <label for="supplier">Supplier</label>
+                  <select name="supplier" id="supplier" class="form-control select2">
+                    <?php 
+                      $all_suppliers = $obj->all('suppliar');
+                      $selected_val = $expense_data->supplier;
+                      if ($selected_val == '
+                      ') {
+                        echo '<option value="">Select Supplier</option>';
+                      }
+                      else if ($selected_val == '
+                      ') {
+                        echo '<option value="">Select Supplier</option>';
+                      }
+                      else if ($selected_val == 'selected') {
+                        echo 'selected';
+                      }
+                      else {
+                        echo '';
+                      }
+                      ?>
+                    <option value="">Select Supplier</option>
+                    <?php 
+                      foreach ($all_suppliers as $supplier) {
+                        $selected = $selected_val == $supplier->id ? 'selected' : '';
+                    ?>
+                    <option 
+                      value="<?=$supplier->name?>" 
+                      <?=$selected?>>
+                      <?=$supplier->name;?>
+                    </option>
+                    <?php } ?>
+                  </select>
+                </div>
+
                 <!-- Materials Category -->
                 <div class="form-group">
                   <label for="expense_catagory">Materials Category</label>
