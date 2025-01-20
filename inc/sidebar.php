@@ -140,7 +140,7 @@
           </ul>
         </li>
         <!-- Staff -->
-        <li class="nav-item has-treeview">
+        <!-- <li class="nav-item has-treeview">
           <a href="#" class="nav-link <?php echo ($actual_link == 'buy_product' || $actual_link == 'buy_list' || $actual_link == 'buy_refund_list') ? 'active' : ''; ?>">
             <i class="material-symbols-outlined">diversity_3</i>
             <p>
@@ -160,7 +160,7 @@
               </a>
             </li>
           </ul>
-        </li>
+        </li> -->
         <!-- Reports -->
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link <?php echo ($actual_link == 'profit_loss' || $actual_link == 'sales_report' || $actual_link == 'purchase_report' || $actual_link == 'purchase_pay_report' || $actual_link == 'sell_pay_report') ? 'active' : ''; ?>">
