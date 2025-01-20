@@ -57,6 +57,14 @@ $empRecords = $stmt->fetchAll();
 $data = array();
 
 foreach($empRecords as $row){
+   // Determine stock status
+   $rowClass = '';
+   if($row['quantity'] <= 0) {
+      $rowClass = 'table-danger'; // Red background for out of stock
+   } elseif($row['quantity'] <= $row['alert_quanttity']) {
+      $rowClass = 'table-warning'; // Yellow background for low stock
+   }
+
    $data[] = array(
       "product_id"=>$row['product_id'],
       "product_name"=>$row['product_name'],
@@ -72,6 +80,7 @@ foreach($empRecords as $row){
             <button type="button" id="productDelete_btn" class="btn btn-danger btn-sm rounded-0 ml-2" data-id="'.$row['id'].'"><i class="fas fa-trash-alt"></i></button>
           </div>
       ',
+      "DT_RowClass"=>$rowClass // This will apply the class to the entire row
    );
 }
 
