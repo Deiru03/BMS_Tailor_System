@@ -178,7 +178,7 @@
             </li>
             <li class="nav-item">
               <a href="index.php?page=purchase_report" class="nav-link <?php echo $actual_link == 'purchase_report' ? 'active' : ''; ?>">
-                <p>Purchase Report</p>
+                <p>Expenses Report</p>
               </a>
             </li>
           </ul>

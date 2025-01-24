@@ -77,7 +77,7 @@ $actual_link = explode('=', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
           'other_product_list' => 'Other Product List',
           'purchase' => 'Purchase',
           'purchase_edit' => 'Purchase Edit',
-          'purchase_report' => 'Purchase Reports',
+          'purchase_report' => 'Expense Report', // change name into Expense Report
           'invoice' => 'Invoice',
           'invoice_edit' => 'Invoice Edit',
           'report' => 'Report',

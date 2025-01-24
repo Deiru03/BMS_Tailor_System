@@ -3,7 +3,7 @@
 date_default_timezone_set("Asia/Kolkata");
 
 // define the site root
-define('SITE_ROOT', 'http://localhost/ample/');
+define('SITE_ROOT', 'http://localhost/bms/');
 
 
 
@@ -13,7 +13,7 @@ define('DATABASE_HOST','localhost');
 // Database Username
 define('DATABASE_USER','root');
 // Database Name
-define('DATABASE_NAME', 'ample');
+define('DATABASE_NAME', 'bms');
 // Database DB_PASS
 define('DATABASE_PASS','');
 
