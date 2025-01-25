@@ -35,6 +35,39 @@
         .info-box:hover .info-box-icon {
             transform: rotate(10deg);
         }
+        .info-box-content {
+          text-align: center;
+          color: white;
+        }
+
+        .info-box-text {
+          font-size: 24px;
+          font-weight: bold;
+        }
+
+        .sell {
+          font-size: 20px;
+        }
+
+        .income-amount {
+          font-size: 24px;
+          font-weight: bold;
+        }
+
+        .additional-info {
+          margin-top: 10px;
+        }
+
+        .additional-info p {
+          margin: 5px 0;
+        }
+
+        .sales-amount, .expenses-amount {
+          font-weight: bold;
+        }
+        .bg-cards-3 {
+          background-color: #f7b924;
+        }
         </style>
 
         <div class="col-xl-4 col-xxl-6 col-sm-6" onclick="window.location='index.php?page=member'">
@@ -134,6 +167,27 @@
         return $res[0] ? $res[0] : '0'; // Return 0 if no sales
       }
 
+      function getIncome($pdo)
+      {
+        $stmt = $pdo->prepare("SELECT SUM(`payment_amount`) FROM `sell_payment`");
+        $stmt->execute();
+        $res = $stmt->fetch(PDO::FETCH_NUM);
+
+        $stmt = $pdo->prepare("SELECT SUM(`amount`) FROM `expense`");
+        $stmt->execute();
+        $res2 = $stmt->fetch(PDO::FETCH_NUM);
+
+        $total_expenses = $res2[0];
+        $total_sales = $res[0];
+        $total_income = $total_sales - $total_expenses;
+        return [
+          'total_income' => $total_income,
+          'total_sales' => $total_sales,
+          'total_expenses' => $total_expenses
+        ];
+         // Return 0 if no income
+      }
+
 
       function getMonthlyIncome($pdo)
       {
@@ -154,7 +208,7 @@
       ?>
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="info-box bg-cards-1">
             <div class="info-box-content text-center text-white">
               <h2 class="info-box-text" style="font-size: 24px; font-weight: bold;">Today</h2>
@@ -166,10 +220,10 @@
                 ?>
               </span>
             </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="info-box bg-cards-2">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-box bg-cards-2">
             <div class="info-box-content text-center text-white">
               <h2 class="info-box-text" style="font-size: 24px; font-weight: bold;">Monthly</h2>
               <span class="sell" style="font-size: 20px;">Sales:
@@ -179,6 +233,23 @@
                 echo '<span style="font-size: 24px; font-weight: bold;">' . getSales($pdo, $month_start, $month_end) . '</span>';
                 ?>
               </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-box bg-cards-3">
+            <div class="info-box-content text-center text-white">
+              <h2 class="info-box-text" style="font-size: 24px; font-weight: bold;">Total Income</h2>
+              <span class="sell">Income:
+                <?php
+                $total_income = getIncome($pdo);
+                echo '<span class="income-amount">' . $total_income['total_income'] . '</span>';
+                ?>
+              </span>
+              <div class="additional-info">
+                <!-- <p>Total Sales: <span class="sales-amount"><?php echo $total_income['total_sales']; ?></span></p>
+                <p>Total Expenses: <span class="expenses-amount"><?php echo $total_income['total_expenses']; ?></span></p> -->
+              </div>
             </div>
           </div>
         </div>

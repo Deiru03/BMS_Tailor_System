@@ -35,7 +35,7 @@
                     $stmt->execute();
                     $res = $stmt->fetch(PDO::FETCH_NUM);
 
-                    echo $res[0];
+                    echo '₱' . number_format($res[0], 2);
 
                     ?>
                   </span>
@@ -56,12 +56,12 @@
                     $stmt->execute();
                     $res = $stmt->fetch(PDO::FETCH_NUM);
 
-                    echo $res[0];
+                    echo '₱' . number_format($res[0], 2);
 
                     ?>
                   </span>
                 </div>
-                <span class="info-box-icon"><i class="material-symbols-outlined">paid</i></span>
+                <span class="info-box-icon"><i class="material-symbols-outlined">money</i></span>
                 <!-- /.info-box-content -->
               </div>
               <!-- /.info-box -->
@@ -77,7 +77,7 @@
                     $stmt->execute();
                     $res = $stmt->fetch(PDO::FETCH_NUM);
 
-                    echo $res[0];
+                    echo '₱' . number_format($res[0], 2);
 
                     ?>
                   </span>

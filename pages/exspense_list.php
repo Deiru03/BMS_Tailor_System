@@ -22,6 +22,7 @@
     <div class="container-fluid">
       <!-- Summary Section -->
       <div class="row">
+        <!-- Total Expenses Box -->
         <div class="col-12 col-sm-6 col-md-4">
           <div class="info-box bg-success">
             <span class="info-box-icon"><i class="fas fa-coins"></i></span>
@@ -44,6 +45,40 @@
                 echo '<div>Number of Expenses: ' . $res['total_entries'] . '</div>';
                 echo '<div>Average Expense: ₱ ' . number_format($res['avg_amount'], 2) . '</div>';
                 echo '<div>Highest Expense: ₱ ' . number_format($res['highest_expense'], 2) . '</div>';
+                echo '</div>';
+                ?>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Income Box -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="info-box bg-info">
+            <span class="info-box-icon"><i class="fas fa-dollar-sign"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Total Income</span>
+              <span class="info-box-number">
+                <?php
+                // Get total sales and expenses
+                $stmt = $pdo->prepare("SELECT 
+                SUM(payment_amount) as total_sales 
+                FROM sell_payment");
+                $stmt->execute();
+                $sales = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                $stmt = $pdo->prepare("SELECT 
+                SUM(amount) as total_expenses 
+                FROM expense");
+                $stmt->execute();
+                $expenses = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                $total_income = $sales['total_sales'] - $expenses['total_expenses'];
+
+                echo '<span class="h4">₱ ' . number_format($total_income, 2) . '</span>';
+                echo '<div class="text-sm mt-2">';
+                echo '<div>Total Sales: ₱ ' . number_format($sales['total_sales'], 2) . '</div>';
+                echo '<div>Total Expenses: ₱ ' . number_format($expenses['total_expenses'], 2) . '</div>';
                 echo '</div>';
                 ?>
               </span>
