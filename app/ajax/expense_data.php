@@ -56,13 +56,20 @@ $empRecords = $stmt->fetchAll();
 $data = array();
 
 foreach($empRecords as $row){
+   // Get the category name for this expense
+   $catStmt = $pdo->prepare("SELECT name FROM expense_catagory WHERE id = :cat_id");
+   $catStmt->bindValue(':cat_id', $row['expense_cat'], PDO::PARAM_INT);
+   $catStmt->execute();
+   $catResult = $catStmt->fetch(PDO::FETCH_ASSOC);
+   $categoryName = ($catResult) ? $catResult['name'] : 'Unknown'; // Use 'Unknown' if no category found
+   
    $data[] = array(
       "id"=>$row['id'],
       "ex_date"=>$row['ex_date'],
       "expense_for"=>$row['expense_for'],
       "the_supplier"=>$row['supplier'],
       "amount"=>$row['amount'],
-      "expense_cat"=>$row['expense_cat'],
+      "expense_cat"=>$categoryName, // Display category name instead of ID
       "ex_description"=>$row['ex_description'],
       "action"=>'
           <div class="btn-group" role="group" aria-label="Basic example">

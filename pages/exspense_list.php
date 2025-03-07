@@ -111,8 +111,8 @@
                   <th>Expense For</th>
                   <th>Supplier</th>
                   <th>Price</th>
-                  <th>No. Materials</th>
-                  <th>Quantity type</th>
+                  <th>Category<br><small>(Materials)</small></th>
+                  <th>Quantity & Unit</th>
                   <th>Action</th>
                 </tr>
               </thead>
